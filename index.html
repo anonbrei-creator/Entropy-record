@@ -574,6 +574,17 @@
   }
   .btn-edit:hover { opacity: 1; }
 
+  /* Sortable headers */
+  th.sortable {
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+  }
+  th.sortable:hover { color: var(--accent); }
+  th.sort-active { color: var(--accent); }
+  .sort-arrow { font-size: 10px; margin-left: 2px; opacity: 0.6; }
+  th.sort-active .sort-arrow { opacity: 1; color: var(--accent); }
+
   /* Export btn */
   .export-row {
     display: flex;
@@ -1015,6 +1026,44 @@ function clearForm() {
   updateLive();
 }
 
+// ── Sort state
+let sortCol = null;
+let sortDir = 1; // 1 = asc, -1 = desc
+
+function sortTable(col) {
+  if (sortCol === col) {
+    sortDir *= -1;
+  } else {
+    sortCol = col;
+    sortDir = col === 'num' ? -1 : -1; // default desc (high first)
+  }
+  renderTable();
+}
+
+function getSorted(sessions) {
+  if (!sortCol) return sessions.slice().reverse();
+  return sessions.slice().sort((a, b) => {
+    let av = a[sortCol], bv = b[sortCol];
+    // numeric fields
+    if (['num','cv','bpm','low','med','high','H','R','Rpct'].includes(sortCol)) {
+      av = parseFloat(av) || 0;
+      bv = parseFloat(bv) || 0;
+    } else {
+      av = (av || '').toString().toLowerCase();
+      bv = (bv || '').toString().toLowerCase();
+    }
+    if (av < bv) return -sortDir;
+    if (av > bv) return sortDir;
+    return 0;
+  });
+}
+
+function thSort(col, label) {
+  const active = sortCol === col;
+  const arrow = active ? (sortDir === 1 ? ' ↑' : ' ↓') : ' ⇅';
+  return `<th class="sortable${active ? ' sort-active' : ''}" onclick="sortTable('${col}')">${label}<span class="sort-arrow">${arrow}</span></th>`;
+}
+
 // ── Render table
 function renderTable() {
   const sessions = load();
@@ -1024,11 +1073,16 @@ function renderTable() {
   if (sessions.length === 0) {
     tbody.innerHTML = '';
     empty.style.display = 'block';
+    // re-render headers even when empty
+    renderTableHeaders();
     return;
   }
   empty.style.display = 'none';
 
-  tbody.innerHTML = sessions.slice().reverse().map(s => `
+  renderTableHeaders();
+
+  const sorted = getSorted(sessions);
+  tbody.innerHTML = sorted.map(s => `
     <tr>
       <td style="color:var(--muted)">S${s.num}</td>
       <td>${s.date || '—'}</td>
@@ -1051,6 +1105,28 @@ function renderTable() {
       </td>
     </tr>
   `).join('');
+}
+
+function renderTableHeaders() {
+  const thead = document.querySelector('#session-table').closest('table').querySelector('thead tr');
+  thead.innerHTML = `
+    ${thSort('num','#')}
+    ${thSort('date','Date')}
+    <th>Activity</th>
+    ${thSort('cv','C(v)')}
+    <th>Length</th>
+    ${thSort('bpm','BPM')}
+    <th>Time</th>
+    ${thSort('low','Low')}
+    ${thSort('med','Med')}
+    ${thSort('high','High')}
+    ${thSort('H','H')}
+    ${thSort('R','R')}
+    ${thSort('Rpct','R%')}
+    <th>Category</th>
+    <th>Tag</th>
+    <th></th>
+  `;
 }
 
 // ── Stats
