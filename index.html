@@ -520,6 +520,60 @@
 
   .live-calc.updated { animation: pulse-glow 0.5s ease; }
 
+  /* Edit modal */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(5,8,16,0.85);
+    z-index: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+  }
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+
+  .modal {
+    background: var(--surface);
+    border: 1px solid var(--accent);
+    border-radius: 14px;
+    padding: 32px;
+    width: 100%;
+    max-width: 640px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 0 60px rgba(79,195,247,0.15);
+    transform: translateY(20px);
+    transition: transform 0.2s;
+  }
+  .modal-overlay.open .modal { transform: translateY(0); }
+
+  .modal-title {
+    font-size: 11px;
+    font-family: 'Space Mono', monospace;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .btn-edit {
+    background: none;
+    color: var(--accent);
+    border: none;
+    padding: 4px 8px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: 'Space Mono', monospace;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+  }
+  .btn-edit:hover { opacity: 1; }
+
   /* Export btn */
   .export-row {
     display: flex;
@@ -703,6 +757,101 @@
   </div>
 </div>
 
+<!-- Edit Modal -->
+<div class="modal-overlay" id="edit-modal" onclick="closeEditModal(event)">
+  <div class="modal">
+    <div class="modal-title">Edit Session</div>
+    <input type="hidden" id="edit-id">
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Date</label>
+        <input type="date" id="edit-date">
+      </div>
+      <div class="form-group">
+        <label>C(v) — Avg Coherence</label>
+        <input type="number" id="edit-cv" step="0.1" min="0" max="20" oninput="updateEditLive()">
+      </div>
+      <div class="form-group">
+        <label>Length (mm:ss)</label>
+        <input type="text" id="edit-length" placeholder="e.g. 15:33">
+      </div>
+      <div class="form-group">
+        <label>Avg BPM</label>
+        <input type="number" id="edit-bpm" placeholder="optional">
+      </div>
+      <div class="form-group full">
+        <label>Activity / Type</label>
+        <input type="text" id="edit-type">
+      </div>
+    </div>
+
+    <div class="card-title" style="margin-top:16px;">Coherence Distribution</div>
+    <div class="pct-row" style="margin-bottom:16px;">
+      <div class="pct-group">
+        <span class="pct-label low">Low %</span>
+        <input type="number" id="edit-low" min="0" max="100" oninput="updateEditLive()">
+      </div>
+      <div class="pct-group">
+        <span class="pct-label med">Med %</span>
+        <input type="number" id="edit-med" min="0" max="100" oninput="updateEditLive()">
+      </div>
+      <div class="pct-group">
+        <span class="pct-label high">High %</span>
+        <input type="number" id="edit-high" min="0" max="100" oninput="updateEditLive()">
+      </div>
+    </div>
+
+    <div class="live-calc" id="edit-live-calc" style="margin-bottom:16px;">
+      <div class="calc-item">
+        <div class="calc-label">Shannon H</div>
+        <div class="calc-value" id="elc-h">—</div>
+      </div>
+      <div class="calc-item">
+        <div class="calc-label">e^(−H)</div>
+        <div class="calc-value" id="elc-eh">—</div>
+      </div>
+      <div class="calc-item">
+        <div class="calc-label">R Value</div>
+        <div class="calc-value" id="elc-r">—</div>
+      </div>
+      <div class="calc-item">
+        <div class="calc-label">R %</div>
+        <div class="calc-value" id="elc-rpct">—</div>
+      </div>
+    </div>
+
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Category</label>
+        <select id="edit-category">
+          <option value="">Select...</option>
+          <option>Receptive</option>
+          <option>Active Resonance</option>
+          <option>Expressive</option>
+          <option>Breathing Intervention</option>
+          <option>Active/Physical</option>
+          <option>Creative/Spiritual Flow</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tag</label>
+        <input type="text" id="edit-tag">
+      </div>
+      <div class="form-group full">
+        <label>Notes</label>
+        <textarea id="edit-notes"></textarea>
+      </div>
+    </div>
+
+    <div class="btn-row" style="margin-top:8px;">
+      <button class="btn btn-primary" onclick="saveEdit()">Save Changes</button>
+      <button class="btn btn-secondary" onclick="closeEditModal()">Cancel</button>
+      <span id="edit-error" style="color:var(--red);font-size:12px;font-family:'Space Mono',monospace;"></span>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
@@ -865,7 +1014,10 @@ function renderTable() {
       <td><span class="r-badge ${rClass(s.R)}">${s.Rpct.toFixed(1)}%</span></td>
       <td>${s.category ? `<span class="cat-pill">${s.category}</span>` : '—'}</td>
       <td style="color:var(--muted);font-size:11px;">${s.tag || '—'}</td>
-      <td><button class="btn-danger" onclick="deleteSession(${s.id})">del</button></td>
+      <td style="white-space:nowrap;">
+        <button class="btn-edit" onclick="openEditModal(${s.id})">edit</button>
+        <button class="btn-danger" onclick="deleteSession(${s.id})">del</button>
+      </td>
     </tr>
   `).join('');
 }
@@ -1045,7 +1197,96 @@ function switchTab(name) {
   if (name === 'wrapped') renderWrapped();
 }
 
-// ── Init
+// ── Edit modal
+function openEditModal(id) {
+  const sessions = load();
+  const s = sessions.find(s => s.id === id);
+  if (!s) return;
+
+  document.getElementById('edit-id').value = id;
+  document.getElementById('edit-date').value = s.date || '';
+  document.getElementById('edit-cv').value = s.cv;
+  document.getElementById('edit-length').value = s.length || '';
+  document.getElementById('edit-bpm').value = s.bpm || '';
+  document.getElementById('edit-type').value = s.type || '';
+  document.getElementById('edit-low').value = Math.round(s.low * 100);
+  document.getElementById('edit-med').value = Math.round(s.med * 100);
+  document.getElementById('edit-high').value = Math.round(s.high * 100);
+  document.getElementById('edit-category').value = s.category || '';
+  document.getElementById('edit-tag').value = s.tag || '';
+  document.getElementById('edit-notes').value = s.notes || '';
+  document.getElementById('edit-error').textContent = '';
+
+  updateEditLive();
+  document.getElementById('edit-modal').classList.add('open');
+}
+
+function closeEditModal(e) {
+  if (e && e.target !== document.getElementById('edit-modal')) return;
+  document.getElementById('edit-modal').classList.remove('open');
+}
+
+function updateEditLive() {
+  const cv   = parseFloat(document.getElementById('edit-cv').value) || 0;
+  const lowP = parseFloat(document.getElementById('edit-low').value) || 0;
+  const medP = parseFloat(document.getElementById('edit-med').value) || 0;
+  const highP= parseFloat(document.getElementById('edit-high').value) || 0;
+
+  if (!cv || (lowP + medP + highP) === 0) {
+    ['elc-h','elc-eh','elc-r','elc-rpct'].forEach(id => {
+      document.getElementById(id).textContent = '—';
+      document.getElementById(id).className = 'calc-value';
+    });
+    return;
+  }
+
+  const { H, eH, R, Rpct } = calcR(cv, lowP/100, medP/100, highP/100);
+  document.getElementById('elc-h').textContent = H.toFixed(3);
+  document.getElementById('elc-eh').textContent = eH.toFixed(4);
+  const cls = R >= 0.95 ? 'calc-value gold' : R >= 0.45 ? 'calc-value green' : 'calc-value';
+  document.getElementById('elc-r').textContent = R.toFixed(3);
+  document.getElementById('elc-r').className = cls;
+  document.getElementById('elc-rpct').textContent = Rpct.toFixed(1) + '%';
+  document.getElementById('elc-rpct').className = cls;
+}
+
+function saveEdit() {
+  const err = document.getElementById('edit-error');
+  err.textContent = '';
+
+  const id     = parseInt(document.getElementById('edit-id').value);
+  const date   = document.getElementById('edit-date').value;
+  const cv     = parseFloat(document.getElementById('edit-cv').value);
+  const length = document.getElementById('edit-length').value.trim();
+  const bpm    = document.getElementById('edit-bpm').value;
+  const type   = document.getElementById('edit-type').value.trim();
+  const lowP   = parseFloat(document.getElementById('edit-low').value);
+  const medP   = parseFloat(document.getElementById('edit-med').value);
+  const highP  = parseFloat(document.getElementById('edit-high').value);
+  const category = document.getElementById('edit-category').value;
+  const tag    = document.getElementById('edit-tag').value.trim();
+  const notes  = document.getElementById('edit-notes').value.trim();
+
+  if (!cv) { err.textContent = 'C(v) is required.'; return; }
+  const total = (lowP||0) + (medP||0) + (highP||0);
+  if (total === 0) { err.textContent = 'Enter Low/Med/High percentages.'; return; }
+  if (Math.abs(total - 100) > 2) { err.textContent = `Low+Med+High should equal 100% (currently ${total}%).`; return; }
+
+  const low = (lowP||0)/100, med = (medP||0)/100, high = (highP||0)/100;
+  const { H, eH, R, Rpct } = calcR(cv, low, med, high);
+
+  const sessions = load();
+  const idx = sessions.findIndex(s => s.id === id);
+  if (idx === -1) { err.textContent = 'Session not found.'; return; }
+
+  sessions[idx] = { ...sessions[idx], date, cv, length, bpm: bpm||'', type, low, med, high, H, eH, R, Rpct, category, tag, notes };
+  save(sessions);
+
+  document.getElementById('edit-modal').classList.remove('open');
+  showToast('Session updated — R = ' + R.toFixed(3));
+  renderAll();
+}
+
 function renderAll() {
   renderTable();
   renderStats();
