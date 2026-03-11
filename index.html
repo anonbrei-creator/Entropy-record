@@ -630,6 +630,19 @@
           <label>Avg BPM</label>
           <input type="number" id="f-bpm" placeholder="optional">
         </div>
+        <div class="form-group">
+          <label>Time of Day <span style="color:var(--muted);font-size:9px;">(optional)</span></label>
+          <select id="f-timeofday">
+            <option value="">Select...</option>
+            <option>Early Morning (5–8am)</option>
+            <option>Morning (8–11am)</option>
+            <option>Midday (11am–1pm)</option>
+            <option>Afternoon (1–5pm)</option>
+            <option>Evening (5–9pm)</option>
+            <option>Night (9pm–12am)</option>
+            <option>Late Night (12–5am)</option>
+          </select>
+        </div>
         <div class="form-group full">
           <label>Activity / Type</label>
           <input type="text" id="f-type" placeholder="What were you doing during this session?">
@@ -730,6 +743,7 @@
               <th>C(v)</th>
               <th>Length</th>
               <th>BPM</th>
+              <th>Time</th>
               <th>Low</th>
               <th>Med</th>
               <th>High</th>
@@ -778,6 +792,19 @@
       <div class="form-group">
         <label>Avg BPM</label>
         <input type="number" id="edit-bpm" placeholder="optional">
+      </div>
+      <div class="form-group">
+        <label>Time of Day <span style="color:var(--muted);font-size:9px;">(optional)</span></label>
+        <select id="edit-timeofday">
+          <option value="">Select...</option>
+          <option>Early Morning (5–8am)</option>
+          <option>Morning (8–11am)</option>
+          <option>Midday (11am–1pm)</option>
+          <option>Afternoon (1–5pm)</option>
+          <option>Evening (5–9pm)</option>
+          <option>Night (9pm–12am)</option>
+          <option>Late Night (12–5am)</option>
+        </select>
       </div>
       <div class="form-group full">
         <label>Activity / Type</label>
@@ -941,6 +968,7 @@ function saveSession() {
   const cv      = parseFloat(document.getElementById('f-cv').value);
   const length  = document.getElementById('f-length').value.trim();
   const bpm     = document.getElementById('f-bpm').value;
+  const timeofday = document.getElementById('f-timeofday').value;
   const type    = document.getElementById('f-type').value.trim();
   const lowP    = parseFloat(document.getElementById('f-low').value);
   const medP    = parseFloat(document.getElementById('f-med').value);
@@ -963,6 +991,7 @@ function saveSession() {
     id: Date.now(),
     num: sessions.length + 1,
     date, cv, length, bpm: bpm || '',
+    timeofday: timeofday || '',
     type, low, med, high,
     H, eH, R, Rpct,
     category, tag, notes
@@ -981,6 +1010,7 @@ function clearForm() {
     document.getElementById(id).value = '';
   });
   document.getElementById('f-category').value = '';
+  document.getElementById('f-timeofday').value = '';
   document.getElementById('form-error').textContent = '';
   updateLive();
 }
@@ -1006,6 +1036,7 @@ function renderTable() {
       <td style="color:var(--accent)">${s.cv}</td>
       <td>${s.length || '—'}</td>
       <td>${s.bpm || '—'}</td>
+      <td style="color:var(--muted);font-size:11px;">${s.timeofday || '—'}</td>
       <td style="color:var(--gold)">${Math.round(s.low*100)}%</td>
       <td style="color:var(--accent2)">${Math.round(s.med*100)}%</td>
       <td style="color:var(--green)">${Math.round(s.high*100)}%</td>
@@ -1208,6 +1239,7 @@ function openEditModal(id) {
   document.getElementById('edit-cv').value = s.cv;
   document.getElementById('edit-length').value = s.length || '';
   document.getElementById('edit-bpm').value = s.bpm || '';
+  document.getElementById('edit-timeofday').value = s.timeofday || '';
   document.getElementById('edit-type').value = s.type || '';
   document.getElementById('edit-low').value = Math.round(s.low * 100);
   document.getElementById('edit-med').value = Math.round(s.med * 100);
@@ -1259,6 +1291,7 @@ function saveEdit() {
   const cv     = parseFloat(document.getElementById('edit-cv').value);
   const length = document.getElementById('edit-length').value.trim();
   const bpm    = document.getElementById('edit-bpm').value;
+  const timeofday = document.getElementById('edit-timeofday').value;
   const type   = document.getElementById('edit-type').value.trim();
   const lowP   = parseFloat(document.getElementById('edit-low').value);
   const medP   = parseFloat(document.getElementById('edit-med').value);
@@ -1279,7 +1312,7 @@ function saveEdit() {
   const idx = sessions.findIndex(s => s.id === id);
   if (idx === -1) { err.textContent = 'Session not found.'; return; }
 
-  sessions[idx] = { ...sessions[idx], date, cv, length, bpm: bpm||'', type, low, med, high, H, eH, R, Rpct, category, tag, notes };
+  sessions[idx] = { ...sessions[idx], date, cv, length, bpm: bpm||'', timeofday: timeofday||'', type, low, med, high, H, eH, R, Rpct, category, tag, notes };
   save(sessions);
 
   document.getElementById('edit-modal').classList.remove('open');
@@ -1299,10 +1332,12 @@ document.getElementById('f-date').value = new Date().toISOString().split('T')[0]
 // Load existing data
 renderAll();
 
-// Preload historical sessions
+// Preload historical sessions — version flag prevents re-firing after cache clear
+const PRELOAD_KEY = 'coherence_preloaded_v1';
 (function preload() {
+  if (localStorage.getItem(PRELOAD_KEY)) return; // already ran once, never run again
   const existing = load();
-  if (existing.length > 0) return; // already have data
+  if (existing.length > 0) { localStorage.setItem(PRELOAD_KEY, '1'); return; }
 
   const historicalSessions = [
     { date:'2025-01-01', cv:1.0, length:'9:22',  bpm:'', type:'HeartMath Session',                                         low:0.43, med:0.48, high:0.09, category:'Receptive',              tag:'Baseline',                    notes:'' },
@@ -1325,6 +1360,7 @@ renderAll();
   });
 
   save(sessions);
+  localStorage.setItem(PRELOAD_KEY, '1');
   renderAll();
 })();
 </script>
