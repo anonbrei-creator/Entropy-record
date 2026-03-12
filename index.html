@@ -17,6 +17,7 @@
     --gold: #fbbf24;
     --green: #34d399;
     --red: #f87171;
+    --pink: #f472b6;
     --text: #e2e8f0;
     --muted: #64748b;
     --glow: rgba(79, 195, 247, 0.15);
@@ -32,7 +33,6 @@
     overflow-x: hidden;
   }
 
-  /* Animated background */
   body::before {
     content: '';
     position: fixed;
@@ -54,7 +54,6 @@
 
   .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
 
-  /* Header */
   header {
     padding: 40px 0 20px;
     border-bottom: 1px solid var(--border);
@@ -100,7 +99,6 @@
     white-space: nowrap;
   }
 
-  /* Tabs */
   .tabs {
     display: flex;
     gap: 4px;
@@ -134,7 +132,6 @@
   .tab-content { display: none; }
   .tab-content.active { display: block; }
 
-  /* Cards */
   .card {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -162,7 +159,6 @@
     background: var(--border);
   }
 
-  /* Form grid */
   .form-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -170,12 +166,7 @@
     margin-bottom: 20px;
   }
 
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
   .form-group.full { grid-column: 1 / -1; }
   .form-group.half { grid-column: span 2; }
 
@@ -206,10 +197,8 @@
   }
 
   select option { background: var(--surface2); }
-
   textarea { resize: vertical; min-height: 70px; }
 
-  /* Percent inputs */
   .pct-row {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -229,7 +218,6 @@
   .pct-label.med  { color: var(--accent2); }
   .pct-label.high { color: var(--green); }
 
-  /* Live calc display */
   .live-calc {
     background: var(--surface2);
     border: 1px solid var(--border);
@@ -277,7 +265,6 @@
   .pct-bar-med  { background: var(--accent2); transition: width 0.3s; }
   .pct-bar-high { background: var(--green); transition: width 0.3s; }
 
-  /* Buttons */
   .btn {
     padding: 12px 28px;
     border-radius: 8px;
@@ -305,6 +292,22 @@
     border: 1px solid var(--border);
   }
 
+  .btn-pink {
+    background: linear-gradient(135deg, #f472b6, #e879a0);
+    color: #050810;
+    font-weight: 700;
+    border: none;
+    box-shadow: 0 0 20px rgba(244,114,182,0.25);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-pink:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 30px rgba(244,114,182,0.4);
+  }
+
   .btn-danger {
     background: none;
     color: var(--red);
@@ -320,7 +323,6 @@
 
   .btn-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
 
-  /* Stats row */
   .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -363,7 +365,6 @@
     text-transform: uppercase;
   }
 
-  /* Table */
   .table-wrap { overflow-x: auto; }
 
   table {
@@ -422,7 +423,6 @@
     white-space: nowrap;
   }
 
-  /* Wrapped */
   .wrapped-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -482,7 +482,6 @@
   .cat-bar-fill  { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--accent), var(--accent2)); transition: width 0.5s; }
   .cat-bar-val   { width: 40px; text-align: right; color: var(--accent); font-family: 'Space Mono', monospace; font-size: 11px; }
 
-  /* Notification toast */
   .toast {
     position: fixed;
     bottom: 24px;
@@ -502,7 +501,6 @@
 
   .toast.show { transform: translateY(0); opacity: 1; }
 
-  /* Empty state */
   .empty {
     text-align: center;
     padding: 60px 20px;
@@ -513,7 +511,6 @@
 
   .empty-icon { font-size: 36px; margin-bottom: 12px; }
 
-  /* Pulse animation for live calc */
   @keyframes pulse-glow {
     0%, 100% { box-shadow: 0 0 0 0 rgba(79,195,247,0); }
     50% { box-shadow: 0 0 20px 4px rgba(79,195,247,0.15); }
@@ -521,7 +518,6 @@
 
   .live-calc.updated { animation: pulse-glow 0.5s ease; }
 
-  /* Edit modal */
   .modal-overlay {
     position: fixed;
     inset: 0;
@@ -562,6 +558,15 @@
     margin-bottom: 20px;
   }
 
+  /* Graph modal — wider */
+  .modal-graph {
+    max-width: 900px;
+    border-color: var(--pink);
+    box-shadow: 0 0 60px rgba(244,114,182,0.15);
+  }
+
+  .modal-graph .modal-title { color: var(--pink); }
+
   .btn-edit {
     background: none;
     color: var(--accent);
@@ -575,7 +580,6 @@
   }
   .btn-edit:hover { opacity: 1; }
 
-  /* Sortable headers */
   th.sortable {
     cursor: pointer;
     user-select: none;
@@ -586,12 +590,82 @@
   .sort-arrow { font-size: 10px; margin-left: 2px; opacity: 0.6; }
   th.sort-active .sort-arrow { opacity: 1; color: var(--accent); }
 
-  /* Export btn */
   .export-row {
     display: flex;
     justify-content: flex-end;
     margin-bottom: 16px;
     gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  /* Graph legend */
+  .graph-legend {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* Canvas container */
+  .graph-wrap {
+    position: relative;
+    width: 100%;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    overflow: hidden;
+  }
+
+  #graph-canvas {
+    width: 100%;
+    display: block;
+  }
+
+  /* Tooltip */
+  .graph-tooltip {
+    position: absolute;
+    background: var(--surface);
+    border: 1px solid var(--pink);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--text);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+    z-index: 10;
+    white-space: nowrap;
+    box-shadow: 0 4px 20px rgba(244,114,182,0.2);
+  }
+
+  .graph-tooltip.visible { opacity: 1; }
+
+  .graph-no-data {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--muted);
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
   }
 
   @media (max-width: 600px) {
@@ -608,7 +682,7 @@
   <header>
     <div class="header-inner">
       <div>
-        <div class="logo"> coherence field tracker</div>
+        <div class="logo">coherence field tracker</div>
         <h1>Coherence Field</h1>
       </div>
       <div class="equation">R = 1 × C(v) × 2.718^(−H)</div>
@@ -744,10 +818,13 @@
     <div class="card">
       <div class="card-title">All Sessions</div>
       <div class="export-row">
+        <button class="btn btn-pink" style="font-size:12px;padding:8px 18px;" onclick="openGraphModal()">
+          <span style="font-size:15px;">✦</span> C(ν) Over Time
+        </button>
         <button class="btn btn-secondary" style="font-size:12px;padding:8px 16px;" onclick="exportCSV()">Export CSV</button>
-<button class="btn btn-secondary" style="font-size:12px;padding:8px 16px;" onclick="exportJSON()">Export Backup</button>
-<button class="btn btn-secondary" style="font-size:12px;padding:8px 16px;" onclick="document.getElementById('import-input').click()">Import Backup</button>
-<input type="file" id="import-input" accept=".json" style="display:none;" onchange="importJSON(event)">
+        <button class="btn btn-secondary" style="font-size:12px;padding:8px 16px;" onclick="exportJSON()">Export Backup</button>
+        <button class="btn btn-secondary" style="font-size:12px;padding:8px 16px;" onclick="document.getElementById('import-input').click()">Import Backup</button>
+        <input type="file" id="import-input" accept=".json" style="display:none;" onchange="importJSON(event)">
       </div>
       <div class="table-wrap">
         <table>
@@ -783,7 +860,6 @@
 
   <!-- TAB: ABOUT -->
   <div id="tab-about" class="tab-content">
-
     <div class="card">
       <div class="card-title">The Coherence Field Framework</div>
       <p style="color:var(--text);font-size:15px;line-height:1.8;margin-bottom:16px;">
@@ -943,8 +1019,8 @@
         Last Update: 3/10/2026
       </p>
     </div>
-
   </div>
+
   <!-- TAB: WRAPPED -->
   <div id="tab-wrapped" class="tab-content">
     <div id="wrapped-content"></div>
@@ -1059,22 +1135,55 @@
   </div>
 </div>
 
+<!-- Graph Modal -->
+<div class="modal-overlay" id="graph-modal" onclick="closeGraphModal(event)">
+  <div class="modal modal-graph">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+      <div class="modal-title" style="margin-bottom:0;">✦ C(ν) Over Time</div>
+      <button onclick="closeGraphModal()" style="background:none;border:none;color:var(--muted);cursor:pointer;font-family:'Space Mono',monospace;font-size:12px;">✕ close</button>
+    </div>
+
+    <div class="graph-legend">
+      <div class="legend-item">
+        <div class="legend-dot" style="background:var(--pink);box-shadow:0 0 6px rgba(244,114,182,0.6);"></div>
+        <span style="color:var(--pink);">C(ν)</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:var(--green);box-shadow:0 0 6px rgba(52,211,153,0.6);"></div>
+        <span style="color:var(--green);">R Value</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:var(--accent2);box-shadow:0 0 6px rgba(167,139,250,0.6);"></div>
+        <span style="color:var(--accent2);">Shannon H</span>
+      </div>
+    </div>
+
+    <div class="graph-wrap" id="graph-wrap">
+      <canvas id="graph-canvas"></canvas>
+      <div class="graph-tooltip" id="graph-tooltip"></div>
+      <div class="graph-no-data" id="graph-no-data" style="display:none;">
+        <div style="font-size:32px;margin-bottom:12px;">◎</div>
+        No sessions with dates found. Add date-stamped sessions to see the graph.
+      </div>
+    </div>
+
+    <div style="margin-top:12px;font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);text-align:center;letter-spacing:0.08em;">
+      Sessions ordered oldest → newest by date · Hover over a point for details
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
-// ── Storage key
 const KEY = 'coherence_sessions';
 
-// ── Load / Save
 function load() {
   try { return JSON.parse(localStorage.getItem(KEY)) || []; }
   catch { return []; }
 }
-function save(sessions) {
-  localStorage.setItem(KEY, JSON.stringify(sessions));
-}
+function save(sessions) { localStorage.setItem(KEY, JSON.stringify(sessions)); }
 
-// ── Math
 function shannon(low, med, high) {
   let h = 0;
   [low, med, high].forEach(p => { if (p > 0) h -= p * Math.log2(p); });
@@ -1089,14 +1198,12 @@ function calcR(cv, low, med, high) {
 }
 
 function rClass(R) {
-  if (R >= 3.0) return 'r-gold';
   if (R >= 0.95) return 'r-gold';
   if (R >= 0.45) return 'r-green';
   if (R >= 0.2)  return 'r-blue';
   return 'r-dim';
 }
 
-// ── Live calc on form
 function updateLive() {
   const cv   = parseFloat(document.getElementById('f-cv').value) || 0;
   const lowP = parseFloat(document.getElementById('f-low').value) || 0;
@@ -1123,11 +1230,10 @@ function updateLive() {
   rEl.textContent = R.toFixed(3);
   rPEl.textContent = Rpct.toFixed(1) + '%';
 
-  const cls = R >= 3.0 ? 'calc-value gold' : R >= 0.95 ? 'calc-value gold' : R >= 0.45 ? 'calc-value green' : 'calc-value';
+  const cls = R >= 0.95 ? 'calc-value gold' : R >= 0.45 ? 'calc-value green' : 'calc-value';
   rEl.className = cls;
   rPEl.className = cls;
 
-  // bar
   const t = lowP + medP + highP;
   document.getElementById('bar-low').style.width  = (lowP/t*100) + '%';
   document.getElementById('bar-med').style.width  = (medP/t*100) + '%';
@@ -1139,7 +1245,6 @@ function updateLive() {
   lc.classList.add('updated');
 }
 
-// ── Save session
 function saveSession() {
   const err = document.getElementById('form-error');
   err.textContent = '';
@@ -1179,7 +1284,6 @@ function saveSession() {
 
   sessions.push(session);
   save(sessions);
-
   showToast('Session saved — R = ' + R.toFixed(3));
   clearForm();
   renderAll();
@@ -1195,17 +1299,12 @@ function clearForm() {
   updateLive();
 }
 
-// ── Sort state
 let sortCol = null;
-let sortDir = 1; // 1 = asc, -1 = desc
+let sortDir = -1;
 
 function sortTable(col) {
-  if (sortCol === col) {
-    sortDir *= -1;
-  } else {
-    sortCol = col;
-    sortDir = col === 'num' ? -1 : -1; // default desc (high first)
-  }
+  if (sortCol === col) sortDir *= -1;
+  else { sortCol = col; sortDir = -1; }
   renderTable();
 }
 
@@ -1213,13 +1312,10 @@ function getSorted(sessions) {
   if (!sortCol) return sessions.slice().reverse();
   return sessions.slice().sort((a, b) => {
     let av = a[sortCol], bv = b[sortCol];
-    // numeric fields
     if (['num','cv','bpm','low','med','high','H','R','Rpct'].includes(sortCol)) {
-      av = parseFloat(av) || 0;
-      bv = parseFloat(bv) || 0;
+      av = parseFloat(av) || 0; bv = parseFloat(bv) || 0;
     } else {
-      av = (av || '').toString().toLowerCase();
-      bv = (bv || '').toString().toLowerCase();
+      av = (av || '').toString().toLowerCase(); bv = (bv || '').toString().toLowerCase();
     }
     if (av < bv) return -sortDir;
     if (av > bv) return sortDir;
@@ -1233,7 +1329,6 @@ function thSort(col, label) {
   return `<th class="sortable${active ? ' sort-active' : ''}" onclick="sortTable('${col}')">${label}<span class="sort-arrow">${arrow}</span></th>`;
 }
 
-// ── Render table
 function renderTable() {
   const sessions = load();
   const tbody = document.getElementById('session-table');
@@ -1242,12 +1337,10 @@ function renderTable() {
   if (sessions.length === 0) {
     tbody.innerHTML = '';
     empty.style.display = 'block';
-    // re-render headers even when empty
     renderTableHeaders();
     return;
   }
   empty.style.display = 'none';
-
   renderTableHeaders();
 
   const sorted = getSorted(sessions);
@@ -1298,18 +1391,15 @@ function renderTableHeaders() {
   `;
 }
 
-// ── Stats
 function renderStats() {
   const sessions = load();
   const grid = document.getElementById('stats-grid');
-
   if (sessions.length === 0) { grid.innerHTML = ''; return; }
 
   const avgR   = sessions.reduce((a,s) => a+s.R, 0) / sessions.length;
   const avgCv  = sessions.reduce((a,s) => a+s.cv, 0) / sessions.length;
   const avgH   = sessions.reduce((a,s) => a+s.H, 0) / sessions.length;
   const bestR  = Math.max(...sessions.map(s => s.R));
-  const bestSession = sessions.find(s => s.R === bestR);
 
   grid.innerHTML = `
     <div class="stat-card">
@@ -1335,7 +1425,6 @@ function renderStats() {
   `;
 }
 
-// ── Wrapped
 function renderWrapped() {
   const sessions = load();
   const el = document.getElementById('wrapped-content');
@@ -1356,11 +1445,8 @@ function renderWrapped() {
   const avgMed  = Math.round(sessions.reduce((a,s)=>a+s.med,0)/sessions.length*100);
   const avgHigh = Math.round(sessions.reduce((a,s)=>a+s.high,0)/sessions.length*100);
 
-  // Category breakdown
   const cats = {};
-  sessions.forEach(s => {
-    if (s.category) cats[s.category] = (cats[s.category]||0) + 1;
-  });
+  sessions.forEach(s => { if (s.category) cats[s.category] = (cats[s.category]||0) + 1; });
   const maxCat = Math.max(...Object.values(cats), 1);
   const catBars = Object.entries(cats).sort((a,b)=>b[1]-a[1]).map(([name,count]) => `
     <div class="cat-bar-row">
@@ -1370,7 +1456,6 @@ function renderWrapped() {
     </div>
   `).join('');
 
-  // Best session label
   const bestLabel = bestS ? (bestS.type || `Session S${bestS.num}`) : '';
 
   el.innerHTML = `
@@ -1380,19 +1465,16 @@ function renderWrapped() {
         <div class="wrapped-big" style="color:var(--gold)">${bestR.toFixed(3)}</div>
         <div class="wrapped-sub">${bestLabel}${bestS && bestS.date ? ' &bull; ' + bestS.date : ''}</div>
       </div>
-
       <div class="wrapped-card">
         <div class="wrapped-label">Total Sessions</div>
         <div class="wrapped-big">${sessions.length}</div>
         <div class="wrapped-sub">${above1} sessions above threshold (R &ge; 1.0)</div>
       </div>
-
       <div class="wrapped-card">
         <div class="wrapped-label">Average R Value</div>
         <div class="wrapped-big" style="color:var(--green)">${avgR.toFixed(3)}</div>
         <div class="wrapped-sub">Avg C(v): ${avgCv.toFixed(2)} &bull; Avg H: ${avgH.toFixed(3)}</div>
       </div>
-
       <div class="wrapped-card" style="grid-column:1/-1;">
         <div class="wrapped-label">Average Coherence Distribution</div>
         <div style="display:flex;gap:24px;margin-top:12px;flex-wrap:wrap;">
@@ -1416,7 +1498,6 @@ function renderWrapped() {
           <div style="width:${avgHigh}%;background:var(--green);border-radius:0 5px 5px 0;"></div>
         </div>
       </div>
-
       ${Object.keys(cats).length > 0 ? `
       <div class="wrapped-card" style="grid-column:1/-1;">
         <div class="wrapped-label">Sessions by Category</div>
@@ -1426,7 +1507,205 @@ function renderWrapped() {
   `;
 }
 
-// ── Delete
+// ── GRAPH ──────────────────────────────────────────────
+
+let graphData = [];
+let graphPoints = { cv: [], r: [], h: [] };
+
+function openGraphModal() {
+  const sessions = load();
+  // Filter sessions that have a date, sort oldest→newest
+  const dated = sessions.filter(s => s.date).sort((a,b) => a.date.localeCompare(b.date));
+
+  const noData = document.getElementById('graph-no-data');
+  const canvas = document.getElementById('graph-canvas');
+
+  if (dated.length === 0) {
+    noData.style.display = 'block';
+    canvas.style.display = 'none';
+  } else {
+    noData.style.display = 'none';
+    canvas.style.display = 'block';
+    graphData = dated;
+    // Small delay to let modal open and get proper width
+    setTimeout(() => drawGraph(), 50);
+  }
+
+  document.getElementById('graph-modal').classList.add('open');
+}
+
+function closeGraphModal(e) {
+  if (e && e.target !== document.getElementById('graph-modal')) return;
+  document.getElementById('graph-modal').classList.remove('open');
+}
+
+function drawGraph() {
+  const canvas = document.getElementById('graph-canvas');
+  const wrap = document.getElementById('graph-wrap');
+  const tooltip = document.getElementById('graph-tooltip');
+  const data = graphData;
+  if (!data.length) return;
+
+  // Set canvas size
+  const W = wrap.clientWidth - 40; // subtract padding
+  const H = 320;
+  canvas.width = W;
+  canvas.height = H;
+  canvas.style.height = H + 'px';
+
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, W, H);
+
+  const PAD = { top: 20, right: 20, bottom: 50, left: 50 };
+  const plotW = W - PAD.left - PAD.right;
+  const plotH = H - PAD.top - PAD.bottom;
+
+  // Data ranges
+  const allVals = [
+    ...data.map(s => s.cv),
+    ...data.map(s => s.R),
+    ...data.map(s => s.H)
+  ];
+  const maxVal = Math.max(...allVals) * 1.15;
+  const minVal = 0;
+
+  // Helpers
+  const xPos = i => PAD.left + (i / (data.length - 1 || 1)) * plotW;
+  const yPos = v => PAD.top + plotH - ((v - minVal) / (maxVal - minVal || 1)) * plotH;
+
+  // Grid lines
+  const gridCount = 5;
+  ctx.strokeStyle = 'rgba(30,42,69,0.8)';
+  ctx.lineWidth = 1;
+  for (let i = 0; i <= gridCount; i++) {
+    const y = PAD.top + (plotH / gridCount) * i;
+    ctx.beginPath();
+    ctx.moveTo(PAD.left, y);
+    ctx.lineTo(PAD.left + plotW, y);
+    ctx.stroke();
+
+    // Y axis labels
+    const val = maxVal - (maxVal / gridCount) * i;
+    ctx.fillStyle = 'rgba(100,116,139,0.8)';
+    ctx.font = '10px Space Mono, monospace';
+    ctx.textAlign = 'right';
+    ctx.fillText(val.toFixed(1), PAD.left - 6, y + 4);
+  }
+
+  // X axis labels (dates)
+  ctx.fillStyle = 'rgba(100,116,139,0.8)';
+  ctx.font = '9px Space Mono, monospace';
+  ctx.textAlign = 'center';
+
+  const maxLabels = Math.min(data.length, 8);
+  const step = Math.max(1, Math.floor(data.length / maxLabels));
+  data.forEach((s, i) => {
+    if (i % step === 0 || i === data.length - 1) {
+      const x = xPos(i);
+      // Short date format
+      const d = s.date ? s.date.slice(5) : `S${s.num}`; // MM-DD
+      ctx.save();
+      ctx.translate(x, H - PAD.bottom + 14);
+      ctx.rotate(-0.5);
+      ctx.fillText(d, 0, 0);
+      ctx.restore();
+    }
+  });
+
+  // Draw a line series
+  function drawLine(getter, color, glowColor) {
+    if (data.length < 2) return;
+    // Glow pass
+    ctx.save();
+    ctx.shadowColor = glowColor;
+    ctx.shadowBlur = 8;
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 2;
+    ctx.lineJoin = 'round';
+    ctx.beginPath();
+    data.forEach((s, i) => {
+      const x = xPos(i), y = yPos(getter(s));
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    });
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  // Draw dots and store positions for hover
+  function drawDots(getter, color, arr) {
+    arr.length = 0;
+    data.forEach((s, i) => {
+      const x = xPos(i), y = yPos(getter(s));
+      arr.push({ x, y, s, val: getter(s) });
+      ctx.beginPath();
+      ctx.arc(x, y, 4, 0, Math.PI * 2);
+      ctx.fillStyle = color;
+      ctx.shadowColor = color;
+      ctx.shadowBlur = 10;
+      ctx.fill();
+      ctx.shadowBlur = 0;
+    });
+  }
+
+  // Shannon H (accent2 / purple)
+  drawLine(s => s.H, '#a78bfa', 'rgba(167,139,250,0.5)');
+  drawDots(s => s.H, '#a78bfa', graphPoints.h);
+
+  // R value (green)
+  drawLine(s => s.R, '#34d399', 'rgba(52,211,153,0.5)');
+  drawDots(s => s.R, '#34d399', graphPoints.r);
+
+  // C(ν) — pink (on top)
+  drawLine(s => s.cv, '#f472b6', 'rgba(244,114,182,0.5)');
+  drawDots(s => s.cv, '#f472b6', graphPoints.cv);
+
+  // Axis lines
+  ctx.strokeStyle = 'rgba(30,42,69,1)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(PAD.left, PAD.top);
+  ctx.lineTo(PAD.left, PAD.top + plotH);
+  ctx.lineTo(PAD.left + plotW, PAD.top + plotH);
+  ctx.stroke();
+
+  // Hover
+  canvas.onmousemove = (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const mx = (e.clientX - rect.left) * (canvas.width / rect.width);
+    const my = (e.clientY - rect.top) * (canvas.height / rect.height);
+
+    let closest = null, minDist = 20;
+    [...graphPoints.cv, ...graphPoints.r, ...graphPoints.h].forEach(pt => {
+      const d = Math.hypot(mx - pt.x, my - pt.y);
+      if (d < minDist) { minDist = d; closest = pt; }
+    });
+
+    if (closest) {
+      const s = closest.s;
+      tooltip.innerHTML = `
+        <div style="color:var(--pink);font-weight:700;margin-bottom:4px;">${s.date || `S${s.num}`}</div>
+        ${s.type ? `<div style="color:var(--muted);margin-bottom:4px;">${s.type}</div>` : ''}
+        <div style="color:var(--pink);">C(ν): <b>${s.cv}</b></div>
+        <div style="color:var(--green);">R: <b>${s.R.toFixed(3)}</b></div>
+        <div style="color:var(--accent2);">H: <b>${s.H}</b></div>
+      `;
+      // Position tooltip - keep in bounds
+      const wrapRect = wrap.getBoundingClientRect();
+      let tx = e.clientX - wrapRect.left + 12;
+      let ty = e.clientY - wrapRect.top - 10;
+      tooltip.style.left = tx + 'px';
+      tooltip.style.top = ty + 'px';
+      tooltip.classList.add('visible');
+    } else {
+      tooltip.classList.remove('visible');
+    }
+  };
+
+  canvas.onmouseleave = () => tooltip.classList.remove('visible');
+}
+
+// ── END GRAPH ──
+
 function deleteSession(id) {
   if (!confirm('Delete this session?')) return;
   const sessions = load().filter(s => s.id !== id);
@@ -1435,7 +1714,6 @@ function deleteSession(id) {
   showToast('Session deleted.');
 }
 
-// ── Export CSV
 function exportCSV() {
   const sessions = load();
   if (!sessions.length) return;
@@ -1455,7 +1733,6 @@ function exportCSV() {
   a.click();
 }
 
-// ── Toast
 function showToast(msg) {
   const t = document.getElementById('toast');
   t.textContent = msg;
@@ -1463,7 +1740,6 @@ function showToast(msg) {
   setTimeout(() => t.classList.remove('show'), 2500);
 }
 
-// ── Tab switching
 function switchTab(name) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
@@ -1473,7 +1749,6 @@ function switchTab(name) {
   if (name === 'wrapped') renderWrapped();
 }
 
-// ── Edit modal
 function openEditModal(id) {
   const sessions = load();
   const s = sessions.find(s => s.id === id);
@@ -1564,6 +1839,7 @@ function saveEdit() {
   showToast('Session updated — R = ' + R.toFixed(3));
   renderAll();
 }
+
 function exportJSON() {
   const sessions = load();
   if (!sessions.length) { showToast('No sessions to export.'); return; }
@@ -1594,18 +1870,15 @@ function importJSON(event) {
   reader.readAsText(file);
   event.target.value = '';
 }
+
 function renderAll() {
   renderTable();
   renderStats();
   renderWrapped();
 }
 
-// Set today's date
 document.getElementById('f-date').value = new Date().toISOString().split('T')[0];
-
-// Load existing data
 renderAll();
-
 </script>
 </body>
 </html>
