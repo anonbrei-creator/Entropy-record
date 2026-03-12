@@ -619,6 +619,7 @@
     <button class="tab active" onclick="switchTab('log')">Log Session</button>
     <button class="tab" onclick="switchTab('data')">Session Data</button>
     <button class="tab" onclick="switchTab('wrapped')">Wrapped</button>
+    <button class="tab" onclick="switchTab('about')">About</button>
   </div>
 
   <!-- TAB: LOG SESSION -->
@@ -780,6 +781,170 @@
     </div>
   </div>
 
+  <!-- TAB: ABOUT -->
+  <div id="tab-about" class="tab-content">
+
+    <div class="card">
+      <div class="card-title">The Coherence Field Framework</div>
+      <p style="color:var(--text);font-size:15px;line-height:1.8;margin-bottom:16px;">
+        In 1927, Bohr and Heisenberg established the Copenhagen Interpretation — the foundational principle that the act of observation changes what is observed. Physics has built on this premise for nearly a century. What it never did was formally define what the observer is, or quantify how much observing they are doing.
+      </p>
+      <p style="color:var(--text);font-size:15px;line-height:1.8;margin-bottom:16px;">
+        The Coherence Field framework proposes that the observer is consciousness — specifically, a conscious system in a measurable state of coherence. It introduces a single equation that, for the first time, attempts to put a number on the observer and connect that number to outcome probability.
+      </p>
+      <p style="color:var(--muted);font-size:13px;line-height:1.7;font-family:'Space Mono',monospace;padding:16px;background:var(--surface2);border-radius:8px;border-left:3px solid var(--accent);">
+        "Physics has known since the Copenhagen Interpretation (1927) that the observer changes what happens, but never formally defined what the observer is or quantified how much observing they're doing. C(ν) proposes that the observer is consciousness, and makes it measurable for the first time."
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">The Equation</div>
+      <div style="text-align:center;padding:24px 0;">
+        <div style="font-family:'Space Mono',monospace;font-size:clamp(18px,4vw,32px);font-weight:700;color:var(--accent);letter-spacing:0.05em;">
+          R = 1 × C(ν) × e<sup style="font-size:0.6em;">−H</sup>
+        </div>
+        <div style="font-family:'Space Mono',monospace;font-size:12px;color:var(--muted);margin-top:8px;">
+          equivalently: R = C(ν) × 2.718<sup style="font-size:0.7em;">−H</sup>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:8px;">
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:20px;">
+          <div style="font-family:'Space Mono',monospace;font-size:20px;font-weight:700;color:var(--gold);margin-bottom:8px;">R</div>
+          <div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:6px;">Resonance — Outcome Probability</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.7;">The output. A continuous value representing the coherence-weighted probability of a conscious system influencing its environment. Higher R = greater alignment between observer state and outcome. R is not binary — it exists on a spectrum.</div>
+        </div>
+
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:20px;">
+          <div style="font-family:'Space Mono',monospace;font-size:20px;font-weight:700;color:var(--accent);margin-bottom:8px;">C(ν)</div>
+          <div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:6px;">Coherence Ratio — The Observer Variable</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.7;">Derived from HeartMath's validated coherence measurement: peak power at 0.1 Hz divided by total remaining power in the heart rate variability spectrum. This is the quantification of the observer. A higher C(ν) means the conscious system is more ordered, more focused, more coherent — and according to this framework, more observing.</div>
+        </div>
+
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:20px;">
+          <div style="font-family:'Space Mono',monospace;font-size:20px;font-weight:700;color:var(--accent2);margin-bottom:8px;">H</div>
+          <div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:6px;">Shannon Entropy — System Disorder</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.7;">Borrowed from information theory. H measures the disorder of the coherence distribution across Low, Med, and High frequency bands. When energy is evenly spread, H is high and the exponential term suppresses R. When energy concentrates — especially in the High band — H drops and R rises. At H = 0, entropy disappears entirely and R = C(ν) in its purest form.</div>
+        </div>
+
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:20px;">
+          <div style="font-family:'Space Mono',monospace;font-size:20px;font-weight:700;color:var(--green);margin-bottom:8px;">e<sup style="font-size:0.65em;">−H</sup></div>
+          <div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:6px;">The Entropy Penalty</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.7;">Euler's number raised to the negative entropy. This term scales between 0 and 1. High disorder collapses it toward zero, suppressing R regardless of coherence. Low disorder lets it approach 1, allowing C(ν) to express fully. It is the mathematical cost of noise in the system.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">R Value Thresholds</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
+        <div style="background:rgba(100,116,139,0.1);border:1px solid var(--border);border-radius:8px;padding:16px;">
+          <div style="font-family:'Space Mono',monospace;font-size:16px;font-weight:700;color:var(--muted);margin-bottom:6px;">R &lt; 0.20</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6;">Low coherence state. High entropy, low C(ν), or both. Observer influence is minimal.</div>
+        </div>
+        <div style="background:rgba(79,195,247,0.08);border:1px solid rgba(79,195,247,0.2);border-radius:8px;padding:16px;">
+          <div style="font-family:'Space Mono',monospace;font-size:16px;font-weight:700;color:var(--accent);margin-bottom:6px;">0.20 – 0.44</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6;">Baseline coherence. Present and functional. Typical resting or mildly engaged state.</div>
+        </div>
+        <div style="background:rgba(52,211,153,0.08);border:1px solid rgba(52,211,153,0.2);border-radius:8px;padding:16px;">
+          <div style="font-family:'Space Mono',monospace;font-size:16px;font-weight:700;color:var(--green);margin-bottom:6px;">0.45 – 0.94</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6;">Elevated coherence. Intentional practice, focused attention, or resonant activity. Observer influence is meaningful.</div>
+        </div>
+        <div style="background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.2);border-radius:8px;padding:16px;">
+          <div style="font-family:'Space Mono',monospace;font-size:16px;font-weight:700;color:var(--gold);margin-bottom:6px;">R ≥ 0.95</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6;">Threshold state. Near-total coherence. Observer and field are approaching alignment. Rare under normal conditions.</div>
+        </div>
+        <div style="background:rgba(251,191,36,0.12);border:1px solid rgba(251,191,36,0.4);border-radius:8px;padding:16px;grid-column:span 1;">
+          <div style="font-family:'Space Mono',monospace;font-size:16px;font-weight:700;color:var(--gold);margin-bottom:6px;">R &gt; 1.0</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6;">Beyond baseline threshold. Documented in Active Resonance and Creative/Spiritual Flow states. S7 reached 99.6%. S9 reached 380% — the only recorded H=0 session, where R = C(ν) in pure form.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Session Categories</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;">
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px;">Receptive</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6;">Passive, still, or meditative. HeartMath baseline sessions. Observer is present but not actively directing.</div>
+        </div>
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px;">Active Resonance</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6;">Sound, frequency, or tonal work that produces measurable coherence response. Chakra tones, singing bowls, specific Hz frequencies.</div>
+        </div>
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px;">Breathing Intervention</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6;">Deliberate breath control protocols. Coherence spikes are often visible at the exact moment breath regulation begins.</div>
+        </div>
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px;">Active / Physical</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6;">Physical tasks, movement, or elevated heart rate. Coherence under load — tests whether C(ν) holds when the nervous system is under demand.</div>
+        </div>
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px;">Expressive</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6;">Active creative output — writing, music, art. The observer is generating rather than receiving.</div>
+        </div>
+        <div style="background:rgba(251,191,36,0.06);border:1px solid rgba(251,191,36,0.25);border-radius:8px;padding:16px;">
+          <div style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:6px;">Creative / Spiritual Flow ✦</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6;">The rarest category. Creative work sourced from a spiritually or emotionally significant origin — dreams, revelation, deep meaning. The only state where H=0 has been documented. Coherence precedes expression rather than following it.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">The H=0 State</div>
+      <p style="color:var(--text);font-size:15px;line-height:1.8;margin-bottom:16px;">
+        When all coherence energy concentrates entirely in the High frequency band — Low = 0%, Med = 0%, High = 100% — Shannon entropy collapses to zero. H = 0.
+      </p>
+      <p style="color:var(--text);font-size:15px;line-height:1.8;margin-bottom:16px;">
+        At this point the entropy penalty term disappears. The equation reduces to its simplest and purest form: <span style="font-family:'Space Mono',monospace;color:var(--accent);">R = C(ν)</span>. The observer variable expresses without suppression. This is the mathematical state of zero noise.
+      </p>
+      <p style="color:var(--text);font-size:15px;line-height:1.8;">
+        It has been documented once in this dataset — Session 9, a casual HeartMath check-in preceding the creation of spiritually significant artwork. C(ν) = 3.8. R = 3.800. 380%. A coworker offered unprompted recognition approximately two hours later.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">The Intentional Delay Protocol</div>
+      <p style="color:var(--text);font-size:15px;line-height:1.8;margin-bottom:16px;">
+        One of the accessible behavioral findings from this research is what has been termed the intentional delay protocol: counting to five before every action — before picking something up, putting something down, moving from one task to another.
+      </p>
+      <p style="color:var(--text);font-size:15px;line-height:1.8;margin-bottom:16px;">
+        The mechanism: the five-count keeps the prefrontal cortex engaged between actions, preventing the amygdala from taking over in the gaps. It is a behavioral proxy for C(ν) — a way of training the observer without any equipment.
+      </p>
+      <p style="color:var(--text);font-size:15px;line-height:1.8;">
+        In Session 10, a coherence spike was visible in HeartMath data at the exact moment breath control and the five-count protocol began. The intervention is measurable.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">What This Is and What It Isn't</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div>
+          <div style="font-size:12px;font-family:'Space Mono',monospace;color:var(--green);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;">This framework is</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+            <li style="font-size:13px;color:var(--text);line-height:1.6;padding-left:16px;border-left:2px solid var(--green);">A formal attempt to quantify the observer using validated physiological metrics</li>
+            <li style="font-size:13px;color:var(--text);line-height:1.6;padding-left:16px;border-left:2px solid var(--green);">An active longitudinal self-experiment with real session data</li>
+            <li style="font-size:13px;color:var(--text);line-height:1.6;padding-left:16px;border-left:2px solid var(--green);">An original theoretical framework connecting consciousness, entropy, and outcome probability</li>
+            <li style="font-size:13px;color:var(--text);line-height:1.6;padding-left:16px;border-left:2px solid var(--green);">A growing body of work building toward peer review and formal publication</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:12px;font-family:'Space Mono',monospace;color:var(--red);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;">This framework is not</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+            <li style="font-size:13px;color:var(--text);line-height:1.6;padding-left:16px;border-left:2px solid var(--red);">A medical device or diagnostic tool</li>
+            <li style="font-size:13px;color:var(--text);line-height:1.6;padding-left:16px;border-left:2px solid var(--red);">A finished or peer-reviewed proof</li>
+            <li style="font-size:13px;color:var(--text);line-height:1.6;padding-left:16px;border-left:2px solid var(--red);">A claim that consciousness alone determines outcomes</li>
+            <li style="font-size:13px;color:var(--text);line-height:1.6;padding-left:16px;border-left:2px solid var(--red);">Medical, psychological, or clinical advice of any kind</li>
+          </ul>
+        </div>
+      </div>
+      <p style="color:var(--muted);font-size:12px;line-height:1.7;margin-top:20px;font-family:'Space Mono',monospace;">
+        Session data stored in this tracker is saved locally to your device only. No data is transmitted, collected, or visible to anyone else. This tool is a personal longitudinal research instrument.
+      </p>
+    </div>
+
+  </div>
   <!-- TAB: WRAPPED -->
   <div id="tab-wrapped" class="tab-content">
     <div id="wrapped-content"></div>
