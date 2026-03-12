@@ -816,7 +816,8 @@
     <div class="stats-grid" id="stats-grid"></div>
 
     <div class="card">
-      <div class="card-title">All Sessions</div>
+      <div class="card-title">All Sessions</div><div class="card-title">All Sessions</div>
+      <div id="total-time" style="font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);margin-top:-12px;margin-bottom:16px;letter-spacing:0.08em;"></div>
       <div class="export-row">
         <button class="btn btn-pink" style="font-size:12px;padding:8px 18px;" onclick="openGraphModal()">
           <span style="font-size:15px;">✦</span> C(ν) Over Time
@@ -1333,6 +1334,23 @@ function renderTable() {
   const sessions = load();
   const tbody = document.getElementById('session-table');
   const empty = document.getElementById('table-empty');
+
+  // Total time
+  const timeEl = document.getElementById('total-time');
+  if (timeEl) {
+    let totalMins = 0;
+    sessions.forEach(s => {
+      if (s.length) {
+        const parts = s.length.split(':');
+        if (parts.length === 2) totalMins += parseInt(parts[0])||0 + (parseInt(parts[1])||0)/60;
+      }
+    });
+    const hrs = Math.floor(totalMins / 60);
+    const mins = Math.round(totalMins % 60);
+    timeEl.textContent = sessions.length
+      ? `total time logged — ${hrs > 0 ? hrs + 'h ' : ''}${mins}m across ${sessions.length} sessions`
+      : '';
+  }
 
   if (sessions.length === 0) {
     tbody.innerHTML = '';
