@@ -54,626 +54,159 @@
 
   .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
 
-  header {
-    padding: 40px 0 20px;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 40px;
-  }
+  header { padding: 40px 0 20px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
 
-  .header-inner {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
+  .header-inner { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
 
-  .logo {
-    font-size: 11px;
-    font-family: 'Space Mono', monospace;
-    color: var(--accent);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-    opacity: 0.7;
-  }
+  .logo { font-size: 11px; font-family: 'Space Mono', monospace; color: var(--accent); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 8px; opacity: 0.7; }
 
-  h1 {
-    font-size: clamp(28px, 5vw, 48px);
-    font-weight: 800;
-    line-height: 1;
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+  h1 { font-size: clamp(28px, 5vw, 48px); font-weight: 800; line-height: 1; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
-  .equation {
-    font-family: 'Space Mono', monospace;
-    font-size: 12px;
-    color: var(--muted);
-    padding: 8px 14px;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    background: var(--surface);
-    white-space: nowrap;
-  }
+  .equation { font-family: 'Space Mono', monospace; font-size: 12px; color: var(--muted); padding: 8px 14px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); white-space: nowrap; }
 
-  .tabs {
-    display: flex;
-    gap: 4px;
-    margin-bottom: 32px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 4px;
-    width: fit-content;
-  }
+  .tabs { display: flex; gap: 4px; margin-bottom: 32px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 4px; width: fit-content; }
 
-  .tab {
-    padding: 10px 22px;
-    border-radius: 7px;
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--muted);
-    transition: all 0.2s;
-    border: none;
-    background: none;
-    font-family: 'Syne', sans-serif;
-  }
+  .tab { padding: 10px 22px; border-radius: 7px; cursor: pointer; font-size: 13px; font-weight: 600; color: var(--muted); transition: all 0.2s; border: none; background: none; font-family: 'Syne', sans-serif; }
 
-  .tab.active {
-    background: var(--surface2);
-    color: var(--accent);
-    box-shadow: 0 0 20px var(--glow);
-  }
+  .tab.active { background: var(--surface2); color: var(--accent); box-shadow: 0 0 20px var(--glow); }
 
   .tab-content { display: none; }
   .tab-content.active { display: block; }
 
-  .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 28px;
-    margin-bottom: 24px;
-  }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 28px; margin-bottom: 24px; }
 
-  .card-title {
-    font-size: 11px;
-    font-family: 'Space Mono', monospace;
-    color: var(--accent);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
+  .card-title { font-size: 11px; font-family: 'Space Mono', monospace; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
 
-  .card-title::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
+  .card-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-  .form-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 16px;
-    margin-bottom: 20px;
-  }
+  .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 20px; }
 
   .form-group { display: flex; flex-direction: column; gap: 6px; }
   .form-group.full { grid-column: 1 / -1; }
-  .form-group.half { grid-column: span 2; }
 
-  label {
-    font-size: 11px;
-    font-family: 'Space Mono', monospace;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
+  label { font-size: 11px; font-family: 'Space Mono', monospace; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
 
-  input, select, textarea {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 7px;
-    color: var(--text);
-    padding: 10px 14px;
-    font-family: 'Space Mono', monospace;
-    font-size: 13px;
-    transition: border-color 0.2s, box-shadow 0.2s;
-    outline: none;
-    width: 100%;
-  }
+  input, select, textarea { background: var(--surface2); border: 1px solid var(--border); border-radius: 7px; color: var(--text); padding: 10px 14px; font-family: 'Space Mono', monospace; font-size: 13px; transition: border-color 0.2s, box-shadow 0.2s; outline: none; width: 100%; }
 
-  input:focus, select:focus, textarea:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(79,195,247,0.1);
-  }
+  input:focus, select:focus, textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(79,195,247,0.1); }
 
   select option { background: var(--surface2); }
   textarea { resize: vertical; min-height: 70px; }
 
-  .pct-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 12px;
-  }
-
+  .pct-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
   .pct-group { display: flex; flex-direction: column; gap: 6px; }
-
-  .pct-label {
-    font-size: 10px;
-    font-family: 'Space Mono', monospace;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
+  .pct-label { font-size: 10px; font-family: 'Space Mono', monospace; letter-spacing: 0.1em; text-transform: uppercase; }
   .pct-label.low  { color: var(--gold); }
   .pct-label.med  { color: var(--accent2); }
   .pct-label.high { color: var(--green); }
 
-  .live-calc {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 16px;
-  }
+  .live-calc { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-bottom: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 16px; }
 
   .calc-item { text-align: center; }
-
-  .calc-label {
-    font-size: 10px;
-    font-family: 'Space Mono', monospace;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
-
-  .calc-value {
-    font-size: 26px;
-    font-weight: 800;
-    font-family: 'Space Mono', monospace;
-    color: var(--accent);
-    transition: color 0.3s;
-  }
-
+  .calc-label { font-size: 10px; font-family: 'Space Mono', monospace; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+  .calc-value { font-size: 26px; font-weight: 800; font-family: 'Space Mono', monospace; color: var(--accent); transition: color 0.3s; }
   .calc-value.gold  { color: var(--gold); }
   .calc-value.green { color: var(--green); }
-  .calc-value.red   { color: var(--red); }
 
-  .pct-bar {
-    display: flex;
-    height: 6px;
-    border-radius: 3px;
-    overflow: hidden;
-    gap: 2px;
-    margin-top: 8px;
-  }
-
+  .pct-bar { display: flex; height: 6px; border-radius: 3px; overflow: hidden; gap: 2px; margin-top: 8px; }
   .pct-bar-low  { background: var(--gold); transition: width 0.3s; }
   .pct-bar-med  { background: var(--accent2); transition: width 0.3s; }
   .pct-bar-high { background: var(--green); transition: width 0.3s; }
 
-  .btn {
-    padding: 12px 28px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    transition: all 0.2s;
-  }
-
-  .btn-primary {
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    color: #050810;
-  }
-
-  .btn-primary:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 8px 30px rgba(79,195,247,0.3);
-  }
-
-  .btn-secondary {
-    background: var(--surface2);
-    color: var(--muted);
-    border: 1px solid var(--border);
-  }
-
-  .btn-pink {
-    background: linear-gradient(135deg, #f472b6, #e879a0);
-    color: #050810;
-    font-weight: 700;
-    border: none;
-    box-shadow: 0 0 20px rgba(244,114,182,0.25);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .btn-pink:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 8px 30px rgba(244,114,182,0.4);
-  }
-
-  .btn-danger {
-    background: none;
-    color: var(--red);
-    border: none;
-    padding: 4px 8px;
-    font-size: 12px;
-    cursor: pointer;
-    font-family: 'Space Mono', monospace;
-    opacity: 0.6;
-    transition: opacity 0.2s;
-  }
+  .btn { padding: 12px 28px; border-radius: 8px; border: none; cursor: pointer; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 14px; transition: all 0.2s; }
+  .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #050810; }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 30px rgba(79,195,247,0.3); }
+  .btn-secondary { background: var(--surface2); color: var(--muted); border: 1px solid var(--border); }
+  .btn-pink { background: linear-gradient(135deg, #f472b6, #e879a0); color: #050810; font-weight: 700; border: none; box-shadow: 0 0 20px rgba(244,114,182,0.25); display: flex; align-items: center; gap: 8px; }
+  .btn-pink:hover { transform: translateY(-1px); box-shadow: 0 8px 30px rgba(244,114,182,0.4); }
+  .btn-danger { background: none; color: var(--red); border: none; padding: 4px 8px; font-size: 12px; cursor: pointer; font-family: 'Space Mono', monospace; opacity: 0.6; transition: opacity 0.2s; }
   .btn-danger:hover { opacity: 1; }
-
   .btn-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
 
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 16px;
-    margin-bottom: 32px;
-  }
+  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; margin-bottom: 32px; }
 
-  .stat-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .stat-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--accent2));
-  }
-
-  .stat-val {
-    font-size: 32px;
-    font-weight: 800;
-    font-family: 'Space Mono', monospace;
-    color: var(--accent);
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-
-  .stat-lbl {
-    font-size: 10px;
-    font-family: 'Space Mono', monospace;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
+  .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; text-align: center; position: relative; overflow: hidden; }
+  .stat-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent2)); }
+  .stat-val { font-size: 32px; font-weight: 800; font-family: 'Space Mono', monospace; color: var(--accent); line-height: 1; margin-bottom: 6px; }
+  .stat-lbl { font-size: 10px; font-family: 'Space Mono', monospace; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
 
   .table-wrap { overflow-x: auto; }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 12px;
-    font-family: 'Space Mono', monospace;
-  }
-
-  thead th {
-    background: var(--surface2);
-    color: var(--muted);
-    padding: 10px 12px;
-    text-align: left;
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border-bottom: 1px solid var(--border);
-    white-space: nowrap;
-  }
-
-  tbody tr {
-    border-bottom: 1px solid var(--border);
-    transition: background 0.15s;
-  }
-
+  table { width: 100%; border-collapse: collapse; font-size: 12px; font-family: 'Space Mono', monospace; }
+  thead th { background: var(--surface2); color: var(--muted); padding: 10px 12px; text-align: left; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  tbody tr { border-bottom: 1px solid var(--border); transition: background 0.15s; }
   tbody tr:hover { background: var(--surface2); }
+  tbody td { padding: 10px 12px; color: var(--text); vertical-align: middle; }
 
-  tbody td {
-    padding: 10px 12px;
-    color: var(--text);
-    vertical-align: middle;
-  }
-
-  .r-badge {
-    display: inline-block;
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-weight: 700;
-    font-size: 11px;
-  }
-
+  .r-badge { display: inline-block; padding: 3px 8px; border-radius: 4px; font-weight: 700; font-size: 11px; }
   .r-gold  { background: rgba(251,191,36,0.15);  color: var(--gold);  border: 1px solid rgba(251,191,36,0.3); }
   .r-green { background: rgba(52,211,153,0.15);  color: var(--green); border: 1px solid rgba(52,211,153,0.3); }
   .r-blue  { background: rgba(79,195,247,0.15);  color: var(--accent);border: 1px solid rgba(79,195,247,0.3); }
   .r-dim   { background: rgba(100,116,139,0.1);  color: var(--muted); border: 1px solid var(--border); }
 
-  .cat-pill {
-    display: inline-block;
-    padding: 2px 8px;
-    border-radius: 20px;
-    font-size: 10px;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    color: var(--muted);
-    white-space: nowrap;
-  }
+  .cat-pill { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 10px; background: var(--surface2); border: 1px solid var(--border); color: var(--muted); white-space: nowrap; }
 
-  .wrapped-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-
+  .wrapped-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   @media (max-width: 600px) { .wrapped-grid { grid-template-columns: 1fr; } }
-
-  .wrapped-card {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 24px;
-  }
-
-  .wrapped-card.featured {
-    grid-column: 1 / -1;
-    background: linear-gradient(135deg, rgba(79,195,247,0.08), rgba(167,139,250,0.08));
-    border-color: rgba(79,195,247,0.3);
-  }
-
-  .wrapped-label {
-    font-size: 10px;
-    font-family: 'Space Mono', monospace;
-    color: var(--muted);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
-
-  .wrapped-big {
-    font-size: 48px;
-    font-weight: 800;
-    font-family: 'Space Mono', monospace;
-    color: var(--accent);
-    line-height: 1;
-  }
-
-  .wrapped-sub {
-    font-size: 13px;
-    color: var(--muted);
-    margin-top: 6px;
-  }
-
+  .wrapped-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 24px; }
+  .wrapped-card.featured { grid-column: 1 / -1; background: linear-gradient(135deg, rgba(79,195,247,0.08), rgba(167,139,250,0.08)); border-color: rgba(79,195,247,0.3); }
+  .wrapped-label { font-size: 10px; font-family: 'Space Mono', monospace; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 10px; }
+  .wrapped-big { font-size: 48px; font-weight: 800; font-family: 'Space Mono', monospace; color: var(--accent); line-height: 1; }
+  .wrapped-sub { font-size: 13px; color: var(--muted); margin-top: 6px; }
   .category-bars { margin-top: 12px; }
-
-  .cat-bar-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 8px;
-    font-size: 11px;
-  }
-
+  .cat-bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-size: 11px; }
   .cat-bar-label { width: 160px; color: var(--muted); font-family: 'Space Mono', monospace; flex-shrink: 0; }
   .cat-bar-track { flex: 1; height: 6px; background: var(--surface); border-radius: 3px; overflow: hidden; }
   .cat-bar-fill  { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--accent), var(--accent2)); transition: width 0.5s; }
   .cat-bar-val   { width: 40px; text-align: right; color: var(--accent); font-family: 'Space Mono', monospace; font-size: 11px; }
 
-  .toast {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    background: var(--surface);
-    border: 1px solid var(--green);
-    color: var(--green);
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-family: 'Space Mono', monospace;
-    font-size: 12px;
-    z-index: 1000;
-    transform: translateY(100px);
-    opacity: 0;
-    transition: all 0.3s;
-  }
-
+  .toast { position: fixed; bottom: 24px; right: 24px; background: var(--surface); border: 1px solid var(--green); color: var(--green); padding: 12px 20px; border-radius: 8px; font-family: 'Space Mono', monospace; font-size: 12px; z-index: 1000; transform: translateY(100px); opacity: 0; transition: all 0.3s; }
   .toast.show { transform: translateY(0); opacity: 1; }
 
-  .empty {
-    text-align: center;
-    padding: 60px 20px;
-    color: var(--muted);
-    font-family: 'Space Mono', monospace;
-    font-size: 13px;
-  }
-
+  .empty { text-align: center; padding: 60px 20px; color: var(--muted); font-family: 'Space Mono', monospace; font-size: 13px; }
   .empty-icon { font-size: 36px; margin-bottom: 12px; }
 
-  @keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(79,195,247,0); }
-    50% { box-shadow: 0 0 20px 4px rgba(79,195,247,0.15); }
-  }
-
+  @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 0 0 rgba(79,195,247,0); } 50% { box-shadow: 0 0 20px 4px rgba(79,195,247,0.15); } }
   .live-calc.updated { animation: pulse-glow 0.5s ease; }
 
-  .modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(5,8,16,0.85);
-    z-index: 500;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    backdrop-filter: blur(4px);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.2s;
-  }
+  .modal-overlay { position: fixed; inset: 0; background: rgba(5,8,16,0.85); z-index: 500; display: flex; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(4px); opacity: 0; pointer-events: none; transition: opacity 0.2s; }
   .modal-overlay.open { opacity: 1; pointer-events: all; }
-
-  .modal {
-    background: var(--surface);
-    border: 1px solid var(--accent);
-    border-radius: 14px;
-    padding: 32px;
-    width: 100%;
-    max-width: 640px;
-    max-height: 90vh;
-    overflow-y: auto;
-    box-shadow: 0 0 60px rgba(79,195,247,0.15);
-    transform: translateY(20px);
-    transition: transform 0.2s;
-  }
+  .modal { background: var(--surface); border: 1px solid var(--accent); border-radius: 14px; padding: 32px; width: 100%; max-width: 640px; max-height: 90vh; overflow-y: auto; box-shadow: 0 0 60px rgba(79,195,247,0.15); transform: translateY(20px); transition: transform 0.2s; }
   .modal-overlay.open .modal { transform: translateY(0); }
+  .modal-title { font-size: 11px; font-family: 'Space Mono', monospace; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 20px; }
 
-  .modal-title {
-    font-size: 11px;
-    font-family: 'Space Mono', monospace;
-    color: var(--accent);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-  }
-
-  /* Graph modal — wider */
-  .modal-graph {
-    max-width: 900px;
-    border-color: var(--pink);
-    box-shadow: 0 0 60px rgba(244,114,182,0.15);
-  }
-
+  .modal-graph { max-width: 920px; border-color: var(--pink); box-shadow: 0 0 60px rgba(244,114,182,0.15); }
   .modal-graph .modal-title { color: var(--pink); }
 
-  .btn-edit {
-    background: none;
-    color: var(--accent);
-    border: none;
-    padding: 4px 8px;
-    font-size: 12px;
-    cursor: pointer;
-    font-family: 'Space Mono', monospace;
-    opacity: 0.5;
-    transition: opacity 0.2s;
-  }
+  .btn-edit { background: none; color: var(--accent); border: none; padding: 4px 8px; font-size: 12px; cursor: pointer; font-family: 'Space Mono', monospace; opacity: 0.5; transition: opacity 0.2s; }
   .btn-edit:hover { opacity: 1; }
 
-  th.sortable {
-    cursor: pointer;
-    user-select: none;
-    white-space: nowrap;
-  }
+  th.sortable { cursor: pointer; user-select: none; white-space: nowrap; }
   th.sortable:hover { color: var(--accent); }
   th.sort-active { color: var(--accent); }
   .sort-arrow { font-size: 10px; margin-left: 2px; opacity: 0.6; }
   th.sort-active .sort-arrow { opacity: 1; color: var(--accent); }
 
-  .export-row {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 16px;
-    gap: 10px;
-    flex-wrap: wrap;
-    align-items: center;
-  }
+  .export-row { display: flex; justify-content: flex-end; margin-bottom: 16px; gap: 10px; flex-wrap: wrap; align-items: center; }
 
-  /* Graph legend */
-  .graph-legend {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    margin-bottom: 16px;
-    flex-wrap: wrap;
-  }
+  .graph-legend { display: flex; gap: 16px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; align-items: center; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-family: 'Space Mono', monospace; font-size: 11px; color: var(--muted); }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
 
-  .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    color: var(--muted);
-  }
+  /* Horizontal scroll container */
+  .graph-scroll { width: 100%; overflow-x: auto; overflow-y: hidden; background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; }
 
-  .legend-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
+  /* Inner wrap — grows with canvas */
+  .graph-wrap { position: relative; padding: 20px; display: inline-block; min-width: 100%; }
 
-  /* Canvas container */
-  .graph-wrap {
-    position: relative;
-    width: 100%;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 20px;
-    overflow: hidden;
-  }
+  #graph-canvas { display: block; }
 
-  #graph-canvas {
-    width: 100%;
-    display: block;
-  }
-
-  /* Tooltip */
-  .graph-tooltip {
-    position: absolute;
-    background: var(--surface);
-    border: 1px solid var(--pink);
-    border-radius: 8px;
-    padding: 10px 14px;
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    color: var(--text);
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.15s;
-    z-index: 10;
-    white-space: nowrap;
-    box-shadow: 0 4px 20px rgba(244,114,182,0.2);
-  }
-
+  /* Tooltip — fixed to viewport */
+  .graph-tooltip { position: fixed; background: var(--surface); border: 1px solid var(--pink); border-radius: 8px; padding: 10px 14px; font-family: 'Space Mono', monospace; font-size: 11px; color: var(--text); pointer-events: none; opacity: 0; transition: opacity 0.15s; z-index: 600; white-space: nowrap; box-shadow: 0 4px 20px rgba(244,114,182,0.2); }
   .graph-tooltip.visible { opacity: 1; }
 
-  .graph-no-data {
-    text-align: center;
-    padding: 60px 20px;
-    color: var(--muted);
-    font-family: 'Space Mono', monospace;
-    font-size: 13px;
-  }
+  .graph-no-data { text-align: center; padding: 60px 20px; color: var(--muted); font-family: 'Space Mono', monospace; font-size: 13px; }
 
-  @media (max-width: 600px) {
-    .form-grid { grid-template-columns: 1fr; }
-    .pct-row { grid-template-columns: 1fr; }
-    h1 { font-size: 28px; }
-    .equation { display: none; }
-  }
+  @media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; } .pct-row { grid-template-columns: 1fr; } h1 { font-size: 28px; } .equation { display: none; } }
 </style>
 </head>
 <body>
@@ -701,75 +234,34 @@
     <div class="card">
       <div class="card-title">New Session</div>
       <div class="form-grid">
-        <div class="form-group">
-          <label>Date</label>
-          <input type="date" id="f-date">
-        </div>
-        <div class="form-group">
-          <label>C(v) — Avg Coherence</label>
-          <input type="number" id="f-cv" step="0.1" min="0" max="20" placeholder="e.g. 2.2" oninput="updateLive()">
-        </div>
-        <div class="form-group">
-          <label>Length (mm:ss)</label>
-          <input type="text" id="f-length" placeholder="e.g. 15:33">
-        </div>
-        <div class="form-group">
-          <label>Avg BPM</label>
-          <input type="number" id="f-bpm" placeholder="optional">
-        </div>
+        <div class="form-group"><label>Date</label><input type="date" id="f-date"></div>
+        <div class="form-group"><label>C(v) — Avg Coherence</label><input type="number" id="f-cv" step="0.1" min="0" max="20" placeholder="e.g. 2.2" oninput="updateLive()"></div>
+        <div class="form-group"><label>Length (mm:ss)</label><input type="text" id="f-length" placeholder="e.g. 15:33"></div>
+        <div class="form-group"><label>Avg BPM</label><input type="number" id="f-bpm" placeholder="optional"></div>
         <div class="form-group">
           <label>Time of Day <span style="color:var(--muted);font-size:9px;">(optional)</span></label>
           <select id="f-timeofday">
             <option value="">Select...</option>
-            <option>Early Morning (5–8am)</option>
-            <option>Morning (8–11am)</option>
-            <option>Midday (11am–1pm)</option>
-            <option>Afternoon (1–5pm)</option>
-            <option>Evening (5–9pm)</option>
-            <option>Night (9pm–12am)</option>
-            <option>Late Night (12–5am)</option>
+            <option>Early Morning (5–8am)</option><option>Morning (8–11am)</option><option>Midday (11am–1pm)</option>
+            <option>Afternoon (1–5pm)</option><option>Evening (5–9pm)</option><option>Night (9pm–12am)</option><option>Late Night (12–5am)</option>
           </select>
         </div>
-        <div class="form-group full">
-          <label>Activity / Type</label>
-          <input type="text" id="f-type" placeholder="What were you doing during this session?">
-        </div>
+        <div class="form-group full"><label>Activity / Type</label><input type="text" id="f-type" placeholder="What were you doing during this session?"></div>
       </div>
 
       <div class="card-title" style="margin-top:8px;">Coherence Distribution</div>
       <div class="pct-row" style="margin-bottom:16px;">
-        <div class="pct-group">
-          <span class="pct-label low">Low %</span>
-          <input type="number" id="f-low" min="0" max="100" placeholder="e.g. 24" oninput="updateLive()">
-        </div>
-        <div class="pct-group">
-          <span class="pct-label med">Med %</span>
-          <input type="number" id="f-med" min="0" max="100" placeholder="e.g. 38" oninput="updateLive()">
-        </div>
-        <div class="pct-group">
-          <span class="pct-label high">High %</span>
-          <input type="number" id="f-high" min="0" max="100" placeholder="e.g. 38" oninput="updateLive()">
-        </div>
+        <div class="pct-group"><span class="pct-label low">Low %</span><input type="number" id="f-low" min="0" max="100" placeholder="e.g. 24" oninput="updateLive()"></div>
+        <div class="pct-group"><span class="pct-label med">Med %</span><input type="number" id="f-med" min="0" max="100" placeholder="e.g. 38" oninput="updateLive()"></div>
+        <div class="pct-group"><span class="pct-label high">High %</span><input type="number" id="f-high" min="0" max="100" placeholder="e.g. 38" oninput="updateLive()"></div>
       </div>
 
       <div class="live-calc" id="live-calc">
-        <div class="calc-item">
-          <div class="calc-label">Shannon H</div>
-          <div class="calc-value" id="lc-h">—</div>
-        </div>
-        <div class="calc-item">
-          <div class="calc-label">e^(−H)</div>
-          <div class="calc-value" id="lc-eh">—</div>
-        </div>
-        <div class="calc-item">
-          <div class="calc-label">R Value</div>
-          <div class="calc-value" id="lc-r">—</div>
-        </div>
-        <div class="calc-item">
-          <div class="calc-label">R %</div>
-          <div class="calc-value" id="lc-rpct">—</div>
-        </div>
-        <div class="calc-item" style="grid-column: span 2;">
+        <div class="calc-item"><div class="calc-label">Shannon H</div><div class="calc-value" id="lc-h">—</div></div>
+        <div class="calc-item"><div class="calc-label">e^(−H)</div><div class="calc-value" id="lc-eh">—</div></div>
+        <div class="calc-item"><div class="calc-label">R Value</div><div class="calc-value" id="lc-r">—</div></div>
+        <div class="calc-item"><div class="calc-label">R %</div><div class="calc-value" id="lc-rpct">—</div></div>
+        <div class="calc-item" style="grid-column:span 2;">
           <div class="calc-label">Distribution</div>
           <div class="pct-bar" id="lc-bar">
             <div class="pct-bar-low" id="bar-low" style="width:33%"></div>
@@ -784,23 +276,12 @@
           <label>Category</label>
           <select id="f-category">
             <option value="">Select...</option>
-            <option>Receptive</option>
-            <option>Active Resonance</option>
-            <option>Expressive</option>
-            <option>Breathing Intervention</option>
-            <option>Active/Physical</option>
-            <option>Creative/Spiritual Flow</option>
-            <option>Other</option>
+            <option>Receptive</option><option>Active Resonance</option><option>Expressive</option>
+            <option>Breathing Intervention</option><option>Active/Physical</option><option>Creative/Spiritual Flow</option><option>Other</option>
           </select>
         </div>
-        <div class="form-group">
-          <label>Tag</label>
-          <input type="text" id="f-tag" placeholder="e.g. crystals, 396 Hz">
-        </div>
-        <div class="form-group full">
-          <label>Notes</label>
-          <textarea id="f-notes" placeholder="Anything worth remembering about this session..."></textarea>
-        </div>
+        <div class="form-group"><label>Tag</label><input type="text" id="f-tag" placeholder="e.g. crystals, 396 Hz"></div>
+        <div class="form-group full"><label>Notes</label><textarea id="f-notes" placeholder="Anything worth remembering about this session..."></textarea></div>
       </div>
 
       <div class="btn-row">
@@ -814,7 +295,6 @@
   <!-- TAB: SESSION DATA -->
   <div id="tab-data" class="tab-content">
     <div class="stats-grid" id="stats-grid"></div>
-
     <div class="card">
       <div class="card-title">All Sessions</div>
       <div id="total-time" style="font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);margin-top:-12px;margin-bottom:16px;letter-spacing:0.08em;"></div>
@@ -829,33 +309,15 @@
       </div>
       <div class="table-wrap">
         <table>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Date</th>
-              <th>Activity</th>
-              <th>C(v)</th>
-              <th>Length</th>
-              <th>BPM</th>
-              <th>Time</th>
-              <th>Low</th>
-              <th>Med</th>
-              <th>High</th>
-              <th>H</th>
-              <th>R</th>
-              <th>R%</th>
-              <th>Category</th>
-              <th>Tag</th>
-              <th></th>
-            </tr>
-          </thead>
+          <thead><tr>
+            <th>#</th><th>Date</th><th>Activity</th><th>C(v)</th><th>Length</th>
+            <th>BPM</th><th>Time</th><th>Low</th><th>Med</th><th>High</th>
+            <th>H</th><th>R</th><th>R%</th><th>Category</th><th>Tag</th><th></th>
+          </tr></thead>
           <tbody id="session-table"></tbody>
         </table>
       </div>
-      <div id="table-empty" class="empty" style="display:none;">
-        <div class="empty-icon">◎</div>
-        No sessions logged yet. Add your first session.
-      </div>
+      <div id="table-empty" class="empty" style="display:none;"><div class="empty-icon">◎</div>No sessions logged yet. Add your first session.</div>
     </div>
   </div>
 
@@ -863,136 +325,56 @@
   <div id="tab-about" class="tab-content">
     <div class="card">
       <div class="card-title">The Coherence Field Framework</div>
-      <p style="color:var(--text);font-size:15px;line-height:1.8;margin-bottom:16px;">
-        In 1927, Bohr and Heisenberg established the Copenhagen Interpretation which became the foundational principle that the act of observation changes what is observed. Physics has built on this premise for nearly a century. What it never did was formally define what the observer is, or quantify how much observing they are doing.
-      </p>
-      <p style="color:var(--text);font-size:15px;line-height:1.8;margin-bottom:16px;">
-        The Coherence Field framework proposes that the observer is consciousness, specifically, a conscious system in a measurable state of coherence. It introduces a single equation that, for the first time, attempts to put a number on the observer and connect that number to outcome probability.
-      </p>
-      <p style="color:var(--muted);font-size:13px;line-height:1.7;font-family:'Space Mono',monospace;padding:16px;background:var(--surface2);border-radius:8px;border-left:3px solid var(--accent);">
-        "Physics has known since the Copenhagen Interpretation (1927) that the observer changes what happens, but never formally defined what the observer is or quantified how much observing they're doing. C(ν) proposes that the observer is consciousness, and makes it measurable for the first time."
-      </p>
+      <p style="color:var(--text);font-size:15px;line-height:1.8;margin-bottom:16px;">In 1927, Bohr and Heisenberg established the Copenhagen Interpretation which became the foundational principle that the act of observation changes what is observed. Physics has built on this premise for nearly a century. What it never did was formally define what the observer is, or quantify how much observing they are doing.</p>
+      <p style="color:var(--text);font-size:15px;line-height:1.8;margin-bottom:16px;">The Coherence Field framework proposes that the observer is consciousness, specifically, a conscious system in a measurable state of coherence. It introduces a single equation that, for the first time, attempts to put a number on the observer and connect that number to outcome probability.</p>
+      <p style="color:var(--muted);font-size:13px;line-height:1.7;font-family:'Space Mono',monospace;padding:16px;background:var(--surface2);border-radius:8px;border-left:3px solid var(--accent);">"Physics has known since the Copenhagen Interpretation (1927) that the observer changes what happens, but never formally defined what the observer is or quantified how much observing they're doing. C(ν) proposes that the observer is consciousness, and makes it measurable for the first time."</p>
     </div>
-
     <div class="card">
       <div class="card-title">The Equation</div>
       <div style="text-align:center;padding:24px 0;">
-        <div style="font-family:'Space Mono',monospace;font-size:clamp(18px,4vw,32px);font-weight:700;color:var(--accent);letter-spacing:0.05em;">
-          R = 1 × C(ν) × e<sup style="font-size:0.6em;">−H</sup>
-        </div>
-        <div style="font-family:'Space Mono',monospace;font-size:12px;color:var(--muted);margin-top:8px;">
-          equivalently: R = C(ν) × 2.718<sup style="font-size:0.7em;">−H</sup>
-        </div>
+        <div style="font-family:'Space Mono',monospace;font-size:clamp(18px,4vw,32px);font-weight:700;color:var(--accent);letter-spacing:0.05em;">R = 1 × C(ν) × e<sup style="font-size:0.6em;">−H</sup></div>
+        <div style="font-family:'Space Mono',monospace;font-size:12px;color:var(--muted);margin-top:8px;">equivalently: R = C(ν) × 2.718<sup style="font-size:0.7em;">−H</sup></div>
       </div>
-
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:8px;">
-        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:20px;">
-          <div style="font-family:'Space Mono',monospace;font-size:20px;font-weight:700;color:var(--gold);margin-bottom:8px;">R</div>
-          <div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:6px;">Resonance—Outcome Probability</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.7;">The output. A continuous value representing the coherence-weighted probability of a conscious system influencing its environment. Higher R = greater alignment between observer state and outcome. R is not binary, it exists on a spectrum.</div>
-        </div>
-
-        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:20px;">
-          <div style="font-family:'Space Mono',monospace;font-size:20px;font-weight:700;color:var(--accent);margin-bottom:8px;">C(ν)</div>
-          <div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:6px;">Coherence Ratio — The Observer Variable</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.7;">Derived from HeartMath's validated coherence measurement: peak power at 0.1 Hz divided by total remaining power in the heart rate variability spectrum. This is the quantification of the observer. A higher C(ν) means the conscious system is more ordered, more focused, more coherent, and according to this framework, more observing.</div>
-        </div>
-
-        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:20px;">
-          <div style="font-family:'Space Mono',monospace;font-size:20px;font-weight:700;color:var(--accent2);margin-bottom:8px;">H</div>
-          <div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:6px;">Shannon Entropy — System Disorder</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.7;">Borrowed from information theory. H measures the disorder of the coherence distribution across Low, Med, and High frequency bands. When energy is evenly spread, H is high and the exponential term suppresses R. When energy concentrates—especially in the High band—H drops and R rises. At H = 0, entropy disappears entirely and R = C(ν) in its purest form.</div>
-        </div>
-
-        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:20px;">
-          <div style="font-family:'Space Mono',monospace;font-size:20px;font-weight:700;color:var(--green);margin-bottom:8px;">e<sup style="font-size:0.65em;">−H</sup></div>
-          <div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:6px;">The Entropy Penalty</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.7;">Euler's number raised to the negative entropy. This term scales between 0 and 1. High disorder collapses it toward zero, suppressing R regardless of coherence. Low disorder lets it approach 1, allowing C(ν) to express fully. It is the mathematical cost of noise in the system.</div>
-        </div>
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:20px;"><div style="font-family:'Space Mono',monospace;font-size:20px;font-weight:700;color:var(--gold);margin-bottom:8px;">R</div><div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:6px;">Resonance—Outcome Probability</div><div style="font-size:12px;color:var(--muted);line-height:1.7;">The output. A continuous value representing the coherence-weighted probability of a conscious system influencing its environment. Higher R = greater alignment between observer state and outcome. R is not binary, it exists on a spectrum.</div></div>
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:20px;"><div style="font-family:'Space Mono',monospace;font-size:20px;font-weight:700;color:var(--accent);margin-bottom:8px;">C(ν)</div><div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:6px;">Coherence Ratio — The Observer Variable</div><div style="font-size:12px;color:var(--muted);line-height:1.7;">Derived from HeartMath's validated coherence measurement: peak power at 0.1 Hz divided by total remaining power in the heart rate variability spectrum. This is the quantification of the observer. A higher C(ν) means the conscious system is more ordered, more focused, more coherent, and according to this framework, more observing.</div></div>
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:20px;"><div style="font-family:'Space Mono',monospace;font-size:20px;font-weight:700;color:var(--accent2);margin-bottom:8px;">H</div><div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:6px;">Shannon Entropy — System Disorder</div><div style="font-size:12px;color:var(--muted);line-height:1.7;">Borrowed from information theory. H measures the disorder of the coherence distribution across Low, Med, and High frequency bands. When energy is evenly spread, H is high and the exponential term suppresses R. When energy concentrates—especially in the High band—H drops and R rises. At H = 0, entropy disappears entirely and R = C(ν) in its purest form.</div></div>
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:20px;"><div style="font-family:'Space Mono',monospace;font-size:20px;font-weight:700;color:var(--green);margin-bottom:8px;">e<sup style="font-size:0.65em;">−H</sup></div><div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:6px;">The Entropy Penalty</div><div style="font-size:12px;color:var(--muted);line-height:1.7;">Euler's number raised to the negative entropy. This term scales between 0 and 1. High disorder collapses it toward zero, suppressing R regardless of coherence. Low disorder lets it approach 1, allowing C(ν) to express fully. It is the mathematical cost of noise in the system.</div></div>
       </div>
     </div>
-
     <div class="card">
       <div class="card-title">R Value Thresholds</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
-        <div style="background:rgba(100,116,139,0.1);border:1px solid var(--border);border-radius:8px;padding:16px;">
-          <div style="font-family:'Space Mono',monospace;font-size:16px;font-weight:700;color:var(--muted);margin-bottom:6px;">R &lt; 0.20</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.6;">Low coherence state. High entropy, low C(ν), or both. Observer influence is minimal.</div>
-        </div>
-        <div style="background:rgba(79,195,247,0.08);border:1px solid rgba(79,195,247,0.2);border-radius:8px;padding:16px;">
-          <div style="font-family:'Space Mono',monospace;font-size:16px;font-weight:700;color:var(--accent);margin-bottom:6px;">0.20 – 0.44</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.6;">Baseline coherence. Present and functional. Typical resting or mildly engaged state.</div>
-        </div>
-        <div style="background:rgba(52,211,153,0.08);border:1px solid rgba(52,211,153,0.2);border-radius:8px;padding:16px;">
-          <div style="font-family:'Space Mono',monospace;font-size:16px;font-weight:700;color:var(--green);margin-bottom:6px;">0.45 – 0.94</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.6;">Elevated coherence. Intentional practice, focused attention, or resonant activity. Observer influence is meaningful.</div>
-        </div>
-        <div style="background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.2);border-radius:8px;padding:16px;">
-          <div style="font-family:'Space Mono',monospace;font-size:16px;font-weight:700;color:var(--gold);margin-bottom:6px;">R ≥ 0.95</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.6;">Threshold state. Near-total coherence. Observer and field are approaching alignment. Rare under normal conditions.</div>
-        </div>
-        <div style="background:rgba(251,191,36,0.12);border:1px solid rgba(251,191,36,0.4);border-radius:8px;padding:16px;grid-column:span 1;">
-          <div style="font-family:'Space Mono',monospace;font-size:16px;font-weight:700;color:var(--gold);margin-bottom:6px;">R &gt; 1.0</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.6;">Beyond baseline threshold. Documented in Active Resonance and Creative/Spiritual Flow states. The highest recorded R values in this framework have occurred during sound-based meditation and spiritually sourced creative work. The theoretical ceiling is the H=0 state—where entropy disappears entirely and R = C(ν) in pure form.</div>
-        </div>
+        <div style="background:rgba(100,116,139,0.1);border:1px solid var(--border);border-radius:8px;padding:16px;"><div style="font-family:'Space Mono',monospace;font-size:16px;font-weight:700;color:var(--muted);margin-bottom:6px;">R &lt; 0.20</div><div style="font-size:12px;color:var(--muted);line-height:1.6;">Low coherence state. High entropy, low C(ν), or both. Observer influence is minimal.</div></div>
+        <div style="background:rgba(79,195,247,0.08);border:1px solid rgba(79,195,247,0.2);border-radius:8px;padding:16px;"><div style="font-family:'Space Mono',monospace;font-size:16px;font-weight:700;color:var(--accent);margin-bottom:6px;">0.20 – 0.44</div><div style="font-size:12px;color:var(--muted);line-height:1.6;">Baseline coherence. Present and functional. Typical resting or mildly engaged state.</div></div>
+        <div style="background:rgba(52,211,153,0.08);border:1px solid rgba(52,211,153,0.2);border-radius:8px;padding:16px;"><div style="font-family:'Space Mono',monospace;font-size:16px;font-weight:700;color:var(--green);margin-bottom:6px;">0.45 – 0.94</div><div style="font-size:12px;color:var(--muted);line-height:1.6;">Elevated coherence. Intentional practice, focused attention, or resonant activity. Observer influence is meaningful.</div></div>
+        <div style="background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.2);border-radius:8px;padding:16px;"><div style="font-family:'Space Mono',monospace;font-size:16px;font-weight:700;color:var(--gold);margin-bottom:6px;">R ≥ 0.95</div><div style="font-size:12px;color:var(--muted);line-height:1.6;">Threshold state. Near-total coherence. Observer and field are approaching alignment. Rare under normal conditions.</div></div>
+        <div style="background:rgba(251,191,36,0.12);border:1px solid rgba(251,191,36,0.4);border-radius:8px;padding:16px;"><div style="font-family:'Space Mono',monospace;font-size:16px;font-weight:700;color:var(--gold);margin-bottom:6px;">R &gt; 1.0</div><div style="font-size:12px;color:var(--muted);line-height:1.6;">Beyond baseline threshold. Documented in Active Resonance and Creative/Spiritual Flow states. The highest recorded R values in this framework have occurred during sound-based meditation and spiritually sourced creative work. The theoretical ceiling is the H=0 state—where entropy disappears entirely and R = C(ν) in pure form.</div></div>
       </div>
     </div>
-
     <div class="card">
       <div class="card-title">Session Categories</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;">
-        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px;">
-          <div style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px;">Receptive</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.6;">Passive, still, or meditative. HeartMath baseline sessions. Observer is present but not actively directing.</div>
-        </div>
-        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px;">
-          <div style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px;">Active Resonance</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.6;">Sound, frequency, or tonal work that produces measurable coherence response. Chakra tones, singing bowls, specific Hz frequencies.</div>
-        </div>
-        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px;">
-          <div style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px;">Breathing Intervention</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.6;">Deliberate breath control protocols. Coherence spikes are often visible at the exact moment breath regulation begins.</div>
-        </div>
-        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px;">
-          <div style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px;">Active / Physical</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.6;">Physical tasks, movement, or elevated heart rate. Coherence under load tests whether C(ν) holds when the nervous system is under demand.</div>
-        </div>
-        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px;">
-          <div style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px;">Expressive</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.6;">Active creative output (e.g. writing, music, art). The observer is generating rather than receiving.</div>
-        </div>
-        <div style="background:rgba(251,191,36,0.06);border:1px solid rgba(251,191,36,0.25);border-radius:8px;padding:16px;">
-          <div style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:6px;">Creative / Spiritual Flow ✦</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.6;">The rarest-seeming category. Creative work sourced from a spiritually or emotionally significant origin (e.g. dreams, revelation, intentional action, etc.). The only state where H=0 has been documented in my personal research. Coherence precedes expression rather than following it.</div>
-        </div>
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px;"><div style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px;">Receptive</div><div style="font-size:12px;color:var(--muted);line-height:1.6;">Passive, still, or meditative. HeartMath baseline sessions. Observer is present but not actively directing.</div></div>
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px;"><div style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px;">Active Resonance</div><div style="font-size:12px;color:var(--muted);line-height:1.6;">Sound, frequency, or tonal work that produces measurable coherence response. Chakra tones, singing bowls, specific Hz frequencies.</div></div>
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px;"><div style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px;">Breathing Intervention</div><div style="font-size:12px;color:var(--muted);line-height:1.6;">Deliberate breath control protocols. Coherence spikes are often visible at the exact moment breath regulation begins.</div></div>
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px;"><div style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px;">Active / Physical</div><div style="font-size:12px;color:var(--muted);line-height:1.6;">Physical tasks, movement, or elevated heart rate. Coherence under load tests whether C(ν) holds when the nervous system is under demand.</div></div>
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px;"><div style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px;">Expressive</div><div style="font-size:12px;color:var(--muted);line-height:1.6;">Active creative output (e.g. writing, music, art). The observer is generating rather than receiving.</div></div>
+        <div style="background:rgba(251,191,36,0.06);border:1px solid rgba(251,191,36,0.25);border-radius:8px;padding:16px;"><div style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:6px;">Creative / Spiritual Flow ✦</div><div style="font-size:12px;color:var(--muted);line-height:1.6;">The rarest-seeming category. Creative work sourced from a spiritually or emotionally significant origin (e.g. dreams, revelation, intentional action, etc.). The only state where H=0 has been documented in my personal research. Coherence precedes expression rather than following it.</div></div>
       </div>
     </div>
-
     <div class="card">
       <div class="card-title">The H=0 State</div>
-      <p style="color:var(--text);font-size:15px;line-height:1.8;margin-bottom:16px;">
-        When all coherence energy concentrates entirely in the High frequency band — Low = 0%, Med = 0%, High = 100% — Shannon entropy collapses to zero. H = 0.
-      </p>
-      <p style="color:var(--text);font-size:15px;line-height:1.8;margin-bottom:16px;">
-        At this point the entropy penalty term disappears. The equation reduces to its simplest and purest form: <span style="font-family:'Space Mono',monospace;color:var(--accent);">R = C(ν)</span>. The observer variable expresses without suppression. This is the mathematical state of zero noise.
-      </p>
-      <p style="color:var(--text);font-size:15px;line-height:1.8;">
-        It has been documented in this research during a casual HeartMath check-in that preceded the creation of spiritually significant artwork. The session produced the highest R value recorded in this dataset: C(ν) = 3.8, R = 3.800, 380%. Unprompted external recognition followed approximately two hours later.</p>
+      <p style="color:var(--text);font-size:15px;line-height:1.8;margin-bottom:16px;">When all coherence energy concentrates entirely in the High frequency band — Low = 0%, Med = 0%, High = 100% — Shannon entropy collapses to zero. H = 0.</p>
+      <p style="color:var(--text);font-size:15px;line-height:1.8;margin-bottom:16px;">At this point the entropy penalty term disappears. The equation reduces to its simplest and purest form: <span style="font-family:'Space Mono',monospace;color:var(--accent);">R = C(ν)</span>. The observer variable expresses without suppression. This is the mathematical state of zero noise.</p>
+      <p style="color:var(--text);font-size:15px;line-height:1.8;">It has been documented in this research during a casual HeartMath check-in that preceded the creation of spiritually significant artwork. The session produced the highest R value recorded in this dataset: C(ν) = 3.8, R = 3.800, 380%. Unprompted external recognition followed approximately two hours later.</p>
     </div>
-
     <div class="card">
       <div class="card-title">The Intentional Delay Protocol</div>
-      <p style="color:var(--text);font-size:15px;line-height:1.8;margin-bottom:16px;">
-        One of the accessible behavioral findings from this research is what has been termed the intentional delay protocol: counting to five before every action (e.g. before picking something up, putting something down, moving from one task to another).
-      </p>
-      <p style="color:var(--text);font-size:15px;line-height:1.8;margin-bottom:16px;">
-        The mechanism: the five-count keeps the prefrontal cortex engaged between actions, preventing the amygdala from taking over in the gaps. It is a behavioral proxy for C(ν) as a way of training the observer without any equipment.
-      </p>
-      <p style="color:var(--text);font-size:15px;line-height:1.8;">
-        In documented research, a coherence spike was visible in HeartMath data at the exact moment breath control and the five-count protocol began. The intervention is measurable.
-      </p>
+      <p style="color:var(--text);font-size:15px;line-height:1.8;margin-bottom:16px;">One of the accessible behavioral findings from this research is what has been termed the intentional delay protocol: counting to five before every action (e.g. before picking something up, putting something down, moving from one task to another).</p>
+      <p style="color:var(--text);font-size:15px;line-height:1.8;margin-bottom:16px;">The mechanism: the five-count keeps the prefrontal cortex engaged between actions, preventing the amygdala from taking over in the gaps. It is a behavioral proxy for C(ν) as a way of training the observer without any equipment.</p>
+      <p style="color:var(--text);font-size:15px;line-height:1.8;">In documented research, a coherence spike was visible in HeartMath data at the exact moment breath control and the five-count protocol began. The intervention is measurable.</p>
     </div>
-
     <div class="card">
       <div class="card-title">What This Is and What It Isn't</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
@@ -1015,17 +397,12 @@
           </ul>
         </div>
       </div>
-      <p style="color:var(--muted);font-size:12px;line-height:1.7;margin-top:20px;font-family:'Space Mono',monospace;">
-        Session data stored in this tracker is saved locally to your device only. No data is transmitted, collected, or visible to anyone else. This tool is a personal longitudinal research instrument created by Brei'anna J. Coffman and is made possible by GitHub.
-        Last Update: 3/11/2026
-      </p>
+      <p style="color:var(--muted);font-size:12px;line-height:1.7;margin-top:20px;font-family:'Space Mono',monospace;">Session data stored in this tracker is saved locally to your device only. No data is transmitted, collected, or visible to anyone else. This tool is a personal longitudinal research instrument created by Brei'anna J. Coffman and is made possible by GitHub. Last Update: 3/12/2026</p>
     </div>
   </div>
 
   <!-- TAB: WRAPPED -->
-  <div id="tab-wrapped" class="tab-content">
-    <div id="wrapped-content"></div>
-  </div>
+  <div id="tab-wrapped" class="tab-content"><div id="wrapped-content"></div></div>
 </div>
 
 <!-- Edit Modal -->
@@ -1034,100 +411,44 @@
     <div class="modal-title">Edit Session</div>
     <input type="hidden" id="edit-id">
     <div class="form-grid">
-      <div class="form-group">
-        <label>Date</label>
-        <input type="date" id="edit-date">
-      </div>
-      <div class="form-group">
-        <label>C(v) — Avg Coherence</label>
-        <input type="number" id="edit-cv" step="0.1" min="0" max="20" oninput="updateEditLive()">
-      </div>
-      <div class="form-group">
-        <label>Length (mm:ss)</label>
-        <input type="text" id="edit-length" placeholder="e.g. 15:33">
-      </div>
-      <div class="form-group">
-        <label>Avg BPM</label>
-        <input type="number" id="edit-bpm" placeholder="optional">
-      </div>
+      <div class="form-group"><label>Date</label><input type="date" id="edit-date"></div>
+      <div class="form-group"><label>C(v) — Avg Coherence</label><input type="number" id="edit-cv" step="0.1" min="0" max="20" oninput="updateEditLive()"></div>
+      <div class="form-group"><label>Length (mm:ss)</label><input type="text" id="edit-length" placeholder="e.g. 15:33"></div>
+      <div class="form-group"><label>Avg BPM</label><input type="number" id="edit-bpm" placeholder="optional"></div>
       <div class="form-group">
         <label>Time of Day <span style="color:var(--muted);font-size:9px;">(optional)</span></label>
         <select id="edit-timeofday">
           <option value="">Select...</option>
-          <option>Early Morning (5–8am)</option>
-          <option>Morning (8–11am)</option>
-          <option>Midday (11am–1pm)</option>
-          <option>Afternoon (1–5pm)</option>
-          <option>Evening (5–9pm)</option>
-          <option>Night (9pm–12am)</option>
-          <option>Late Night (12–5am)</option>
+          <option>Early Morning (5–8am)</option><option>Morning (8–11am)</option><option>Midday (11am–1pm)</option>
+          <option>Afternoon (1–5pm)</option><option>Evening (5–9pm)</option><option>Night (9pm–12am)</option><option>Late Night (12–5am)</option>
         </select>
       </div>
-      <div class="form-group full">
-        <label>Activity / Type</label>
-        <input type="text" id="edit-type">
-      </div>
+      <div class="form-group full"><label>Activity / Type</label><input type="text" id="edit-type"></div>
     </div>
-
     <div class="card-title" style="margin-top:16px;">Coherence Distribution</div>
     <div class="pct-row" style="margin-bottom:16px;">
-      <div class="pct-group">
-        <span class="pct-label low">Low %</span>
-        <input type="number" id="edit-low" min="0" max="100" oninput="updateEditLive()">
-      </div>
-      <div class="pct-group">
-        <span class="pct-label med">Med %</span>
-        <input type="number" id="edit-med" min="0" max="100" oninput="updateEditLive()">
-      </div>
-      <div class="pct-group">
-        <span class="pct-label high">High %</span>
-        <input type="number" id="edit-high" min="0" max="100" oninput="updateEditLive()">
-      </div>
+      <div class="pct-group"><span class="pct-label low">Low %</span><input type="number" id="edit-low" min="0" max="100" oninput="updateEditLive()"></div>
+      <div class="pct-group"><span class="pct-label med">Med %</span><input type="number" id="edit-med" min="0" max="100" oninput="updateEditLive()"></div>
+      <div class="pct-group"><span class="pct-label high">High %</span><input type="number" id="edit-high" min="0" max="100" oninput="updateEditLive()"></div>
     </div>
-
     <div class="live-calc" id="edit-live-calc" style="margin-bottom:16px;">
-      <div class="calc-item">
-        <div class="calc-label">Shannon H</div>
-        <div class="calc-value" id="elc-h">—</div>
-      </div>
-      <div class="calc-item">
-        <div class="calc-label">e^(−H)</div>
-        <div class="calc-value" id="elc-eh">—</div>
-      </div>
-      <div class="calc-item">
-        <div class="calc-label">R Value</div>
-        <div class="calc-value" id="elc-r">—</div>
-      </div>
-      <div class="calc-item">
-        <div class="calc-label">R %</div>
-        <div class="calc-value" id="elc-rpct">—</div>
-      </div>
+      <div class="calc-item"><div class="calc-label">Shannon H</div><div class="calc-value" id="elc-h">—</div></div>
+      <div class="calc-item"><div class="calc-label">e^(−H)</div><div class="calc-value" id="elc-eh">—</div></div>
+      <div class="calc-item"><div class="calc-label">R Value</div><div class="calc-value" id="elc-r">—</div></div>
+      <div class="calc-item"><div class="calc-label">R %</div><div class="calc-value" id="elc-rpct">—</div></div>
     </div>
-
     <div class="form-grid">
       <div class="form-group">
         <label>Category</label>
         <select id="edit-category">
           <option value="">Select...</option>
-          <option>Receptive</option>
-          <option>Active Resonance</option>
-          <option>Expressive</option>
-          <option>Breathing Intervention</option>
-          <option>Active/Physical</option>
-          <option>Creative/Spiritual Flow</option>
-          <option>Other</option>
+          <option>Receptive</option><option>Active Resonance</option><option>Expressive</option>
+          <option>Breathing Intervention</option><option>Active/Physical</option><option>Creative/Spiritual Flow</option><option>Other</option>
         </select>
       </div>
-      <div class="form-group">
-        <label>Tag</label>
-        <input type="text" id="edit-tag">
-      </div>
-      <div class="form-group full">
-        <label>Notes</label>
-        <textarea id="edit-notes"></textarea>
-      </div>
+      <div class="form-group"><label>Tag</label><input type="text" id="edit-tag"></div>
+      <div class="form-group full"><label>Notes</label><textarea id="edit-notes"></textarea></div>
     </div>
-
     <div class="btn-row" style="margin-top:8px;">
       <button class="btn btn-primary" onclick="saveEdit()">Save Changes</button>
       <button class="btn btn-secondary" onclick="closeEditModal()">Cancel</button>
@@ -1139,50 +460,44 @@
 <!-- Graph Modal -->
 <div class="modal-overlay" id="graph-modal" onclick="closeGraphModal(event)">
   <div class="modal modal-graph">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
       <div class="modal-title" style="margin-bottom:0;">✦ C(ν) Over Time</div>
       <button onclick="closeGraphModal()" style="background:none;border:none;color:var(--muted);cursor:pointer;font-family:'Space Mono',monospace;font-size:12px;">✕ close</button>
     </div>
 
     <div class="graph-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--pink);box-shadow:0 0 6px rgba(244,114,182,0.6);"></div><span style="color:var(--pink);">C(ν)</span></div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--green);box-shadow:0 0 6px rgba(52,211,153,0.6);"></div><span style="color:var(--green);">R Value</span></div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--accent2);box-shadow:0 0 6px rgba(167,139,250,0.6);"></div><span style="color:var(--accent2);">Shannon H</span></div>
       <div class="legend-item">
-        <div class="legend-dot" style="background:var(--pink);box-shadow:0 0 6px rgba(244,114,182,0.6);"></div>
-        <span style="color:var(--pink);">C(ν)</span>
+        <div style="width:20px;height:0;border-top:2px dashed rgba(244,114,182,0.7);flex-shrink:0;"></div>
+        <span style="color:rgba(244,114,182,0.7);">5-pt avg</span>
       </div>
-      <div class="legend-item">
-        <div class="legend-dot" style="background:var(--green);box-shadow:0 0 6px rgba(52,211,153,0.6);"></div>
-        <span style="color:var(--green);">R Value</span>
-      </div>
-      <div class="legend-item">
-        <div class="legend-dot" style="background:var(--accent2);box-shadow:0 0 6px rgba(167,139,250,0.6);"></div>
-        <span style="color:var(--accent2);">Shannon H</span>
-      </div>
+      <div id="graph-day-note" style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);display:none;">● single &nbsp;◎ multi-session day (avg)</div>
     </div>
 
-    <div class="graph-wrap" id="graph-wrap">
-      <canvas id="graph-canvas"></canvas>
-      <div class="graph-tooltip" id="graph-tooltip"></div>
-      <div class="graph-no-data" id="graph-no-data" style="display:none;">
-        <div style="font-size:32px;margin-bottom:12px;">◎</div>
-        No sessions with dates found. Add date-stamped sessions to see the graph.
+    <div class="graph-scroll" id="graph-scroll">
+      <div class="graph-wrap" id="graph-wrap">
+        <canvas id="graph-canvas"></canvas>
+        <div class="graph-no-data" id="graph-no-data" style="display:none;">
+          <div style="font-size:32px;margin-bottom:12px;">◎</div>
+          No sessions with dates found. Add date-stamped sessions to see the graph.
+        </div>
       </div>
     </div>
 
     <div style="margin-top:12px;font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);text-align:center;letter-spacing:0.08em;">
-      Sessions ordered oldest → newest by date · Hover over a point for details
+      Oldest → newest · Same-day sessions averaged · Gaps compressed · Scroll if needed · Hover for details
     </div>
   </div>
 </div>
 
+<div class="graph-tooltip" id="graph-tooltip"></div>
 <div class="toast" id="toast"></div>
 
 <script>
 const KEY = 'coherence_sessions';
-
-function load() {
-  try { return JSON.parse(localStorage.getItem(KEY)) || []; }
-  catch { return []; }
-}
+function load() { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch { return []; } }
 function save(sessions) { localStorage.setItem(KEY, JSON.stringify(sessions)); }
 
 function shannon(low, med, high) {
@@ -1205,350 +520,251 @@ function rClass(R) {
   return 'r-dim';
 }
 
+function parseLengthMins(str) {
+  if (!str) return 0;
+  const parts = str.split(':');
+  if (parts.length === 2) return (parseInt(parts[0]) || 0) + (parseInt(parts[1]) || 0) / 60;
+  return 0;
+}
+
 function updateLive() {
-  const cv   = parseFloat(document.getElementById('f-cv').value) || 0;
+  const cv = parseFloat(document.getElementById('f-cv').value) || 0;
   const lowP = parseFloat(document.getElementById('f-low').value) || 0;
   const medP = parseFloat(document.getElementById('f-med').value) || 0;
-  const highP= parseFloat(document.getElementById('f-high').value) || 0;
-  const total = lowP + medP + highP;
-
-  if (!cv || total === 0) {
-    ['lc-h','lc-eh','lc-r','lc-rpct'].forEach(id => {
-      document.getElementById(id).textContent = '—';
-      document.getElementById(id).className = 'calc-value';
-    });
+  const highP = parseFloat(document.getElementById('f-high').value) || 0;
+  if (!cv || lowP + medP + highP === 0) {
+    ['lc-h','lc-eh','lc-r','lc-rpct'].forEach(id => { document.getElementById(id).textContent = '—'; document.getElementById(id).className = 'calc-value'; });
     return;
   }
-
-  const low = lowP/100, med = medP/100, high = highP/100;
-  const { H, eH, R, Rpct } = calcR(cv, low, med, high);
-
+  const { H, eH, R, Rpct } = calcR(cv, lowP/100, medP/100, highP/100);
   document.getElementById('lc-h').textContent = H.toFixed(3);
   document.getElementById('lc-eh').textContent = eH.toFixed(4);
-
-  const rEl = document.getElementById('lc-r');
-  const rPEl = document.getElementById('lc-rpct');
-  rEl.textContent = R.toFixed(3);
-  rPEl.textContent = Rpct.toFixed(1) + '%';
-
+  const rEl = document.getElementById('lc-r'), rPEl = document.getElementById('lc-rpct');
+  rEl.textContent = R.toFixed(3); rPEl.textContent = Rpct.toFixed(1) + '%';
   const cls = R >= 0.95 ? 'calc-value gold' : R >= 0.45 ? 'calc-value green' : 'calc-value';
-  rEl.className = cls;
-  rPEl.className = cls;
-
+  rEl.className = cls; rPEl.className = cls;
   const t = lowP + medP + highP;
-  document.getElementById('bar-low').style.width  = (lowP/t*100) + '%';
-  document.getElementById('bar-med').style.width  = (medP/t*100) + '%';
+  document.getElementById('bar-low').style.width = (lowP/t*100) + '%';
+  document.getElementById('bar-med').style.width = (medP/t*100) + '%';
   document.getElementById('bar-high').style.width = (highP/t*100) + '%';
-
   const lc = document.getElementById('live-calc');
-  lc.classList.remove('updated');
-  void lc.offsetWidth;
-  lc.classList.add('updated');
+  lc.classList.remove('updated'); void lc.offsetWidth; lc.classList.add('updated');
 }
 
 function saveSession() {
-  const err = document.getElementById('form-error');
-  err.textContent = '';
-
-  const date    = document.getElementById('f-date').value;
-  const cv      = parseFloat(document.getElementById('f-cv').value);
-  const length  = document.getElementById('f-length').value.trim();
-  const bpm     = document.getElementById('f-bpm').value;
+  const err = document.getElementById('form-error'); err.textContent = '';
+  const date = document.getElementById('f-date').value;
+  const cv = parseFloat(document.getElementById('f-cv').value);
+  const length = document.getElementById('f-length').value.trim();
+  const bpm = document.getElementById('f-bpm').value;
   const timeofday = document.getElementById('f-timeofday').value;
-  const type    = document.getElementById('f-type').value.trim();
-  const lowP    = parseFloat(document.getElementById('f-low').value);
-  const medP    = parseFloat(document.getElementById('f-med').value);
-  const highP   = parseFloat(document.getElementById('f-high').value);
-  const category= document.getElementById('f-category').value;
-  const tag     = document.getElementById('f-tag').value.trim();
-  const notes   = document.getElementById('f-notes').value.trim();
+  const type = document.getElementById('f-type').value.trim();
+  const lowP = parseFloat(document.getElementById('f-low').value);
+  const medP = parseFloat(document.getElementById('f-med').value);
+  const highP = parseFloat(document.getElementById('f-high').value);
+  const category = document.getElementById('f-category').value;
+  const tag = document.getElementById('f-tag').value.trim();
+  const notes = document.getElementById('f-notes').value.trim();
 
-  if (!cv)    { err.textContent = 'C(v) is required.'; return; }
+  if (!cv) { err.textContent = 'C(v) is required.'; return; }
   if (!lowP && !medP && !highP) { err.textContent = 'Enter Low/Med/High percentages.'; return; }
-
   const total = (lowP||0) + (medP||0) + (highP||0);
   if (Math.abs(total - 100) > 2) { err.textContent = `Low+Med+High should equal 100% (currently ${total}%).`; return; }
 
-  const low = (lowP||0)/100, med = (medP||0)/100, high = (highP||0)/100;
-  const { H, eH, R, Rpct } = calcR(cv, low, med, high);
-
+  const { H, eH, R, Rpct } = calcR(cv, (lowP||0)/100, (medP||0)/100, (highP||0)/100);
   const sessions = load();
-  const session = {
-    id: Date.now(),
-    num: sessions.length + 1,
-    date, cv, length, bpm: bpm || '',
-    timeofday: timeofday || '',
-    type, low, med, high,
-    H, eH, R, Rpct,
-    category, tag, notes
-  };
-
-  sessions.push(session);
+  sessions.push({ id: Date.now(), num: sessions.length + 1, date, cv, length, bpm: bpm||'', timeofday: timeofday||'', type, low: (lowP||0)/100, med: (medP||0)/100, high: (highP||0)/100, H, eH, R, Rpct, category, tag, notes });
   save(sessions);
   showToast('Session saved — R = ' + R.toFixed(3));
-  clearForm();
-  renderAll();
+  clearForm(); renderAll();
 }
 
 function clearForm() {
-  ['f-date','f-cv','f-length','f-bpm','f-type','f-low','f-med','f-high','f-tag','f-notes'].forEach(id => {
-    document.getElementById(id).value = '';
-  });
+  ['f-date','f-cv','f-length','f-bpm','f-type','f-low','f-med','f-high','f-tag','f-notes'].forEach(id => document.getElementById(id).value = '');
   document.getElementById('f-category').value = '';
   document.getElementById('f-timeofday').value = '';
   document.getElementById('form-error').textContent = '';
   updateLive();
 }
 
-let sortCol = null;
-let sortDir = -1;
-
-function sortTable(col) {
-  if (sortCol === col) sortDir *= -1;
-  else { sortCol = col; sortDir = -1; }
-  renderTable();
-}
-
+let sortCol = null, sortDir = -1;
+function sortTable(col) { if (sortCol === col) sortDir *= -1; else { sortCol = col; sortDir = -1; } renderTable(); }
 function getSorted(sessions) {
   if (!sortCol) return sessions.slice().reverse();
   return sessions.slice().sort((a, b) => {
     let av = a[sortCol], bv = b[sortCol];
-    if (['num','cv','bpm','low','med','high','H','R','Rpct'].includes(sortCol)) {
-      av = parseFloat(av) || 0; bv = parseFloat(bv) || 0;
-    } else {
-      av = (av || '').toString().toLowerCase(); bv = (bv || '').toString().toLowerCase();
-    }
-    if (av < bv) return -sortDir;
-    if (av > bv) return sortDir;
-    return 0;
+    if (['num','cv','bpm','low','med','high','H','R','Rpct'].includes(sortCol)) { av = parseFloat(av)||0; bv = parseFloat(bv)||0; }
+    else { av = (av||'').toString().toLowerCase(); bv = (bv||'').toString().toLowerCase(); }
+    if (av < bv) return -sortDir; if (av > bv) return sortDir; return 0;
   });
 }
-
 function thSort(col, label) {
   const active = sortCol === col;
   const arrow = active ? (sortDir === 1 ? ' ↑' : ' ↓') : ' ⇅';
-  return `<th class="sortable${active ? ' sort-active' : ''}" onclick="sortTable('${col}')">${label}<span class="sort-arrow">${arrow}</span></th>`;
+  return `<th class="sortable${active?' sort-active':''}" onclick="sortTable('${col}')">${label}<span class="sort-arrow">${arrow}</span></th>`;
 }
 
 function renderTable() {
   const sessions = load();
   const tbody = document.getElementById('session-table');
   const empty = document.getElementById('table-empty');
-
-  // Total time
   const timeEl = document.getElementById('total-time');
   if (timeEl) {
     let totalMins = 0;
-    sessions.forEach(s => {
-      if (s.length) {
-        const parts = s.length.split(':');
-        if (parts.length === 2) totalMins += parseInt(parts[0])||0 + (parseInt(parts[1])||0)/60;
-      }
-    });
-    const hrs = Math.floor(totalMins / 60);
-    const mins = Math.round(totalMins % 60);
-    timeEl.textContent = sessions.length
-      ? `total time logged — ${hrs > 0 ? hrs + 'h ' : ''}${mins}m across ${sessions.length} sessions`
-      : '';
+    sessions.forEach(s => { totalMins += parseLengthMins(s.length); });
+    const hrs = Math.floor(totalMins / 60), mins = Math.round(totalMins % 60);
+    timeEl.textContent = sessions.length ? `total time logged — ${hrs > 0 ? hrs + 'h ' : ''}${mins}m across ${sessions.length} sessions` : '';
   }
-
-  if (sessions.length === 0) {
-    tbody.innerHTML = '';
-    empty.style.display = 'block';
-    renderTableHeaders();
-    return;
-  }
-  empty.style.display = 'none';
-  renderTableHeaders();
-
-  const sorted = getSorted(sessions);
-  tbody.innerHTML = sorted.map(s => `
+  if (sessions.length === 0) { tbody.innerHTML = ''; empty.style.display = 'block'; renderTableHeaders(); return; }
+  empty.style.display = 'none'; renderTableHeaders();
+  tbody.innerHTML = getSorted(sessions).map(s => `
     <tr>
       <td style="color:var(--muted)">S${s.num}</td>
-      <td>${s.date || '—'}</td>
-      <td style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${s.type || '—'}</td>
+      <td>${s.date||'—'}</td>
+      <td style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${s.type||'—'}</td>
       <td style="color:var(--accent)">${s.cv}</td>
-      <td>${s.length || '—'}</td>
-      <td>${s.bpm || '—'}</td>
-      <td style="color:var(--muted);font-size:11px;">${s.timeofday || '—'}</td>
+      <td>${s.length||'—'}</td>
+      <td>${s.bpm||'—'}</td>
+      <td style="color:var(--muted);font-size:11px;">${s.timeofday||'—'}</td>
       <td style="color:var(--gold)">${Math.round(s.low*100)}%</td>
       <td style="color:var(--accent2)">${Math.round(s.med*100)}%</td>
       <td style="color:var(--green)">${Math.round(s.high*100)}%</td>
       <td style="color:var(--muted)">${s.H}</td>
       <td><span class="r-badge ${rClass(s.R)}">${s.R.toFixed(3)}</span></td>
       <td><span class="r-badge ${rClass(s.R)}">${s.Rpct.toFixed(1)}%</span></td>
-      <td>${s.category ? `<span class="cat-pill">${s.category}</span>` : '—'}</td>
-      <td style="color:var(--muted);font-size:11px;">${s.tag || '—'}</td>
-      <td style="white-space:nowrap;">
-        <button class="btn-edit" onclick="openEditModal(${s.id})">edit</button>
-        <button class="btn-danger" onclick="deleteSession(${s.id})">del</button>
-      </td>
-    </tr>
-  `).join('');
+      <td>${s.category?`<span class="cat-pill">${s.category}</span>`:'—'}</td>
+      <td style="color:var(--muted);font-size:11px;">${s.tag||'—'}</td>
+      <td style="white-space:nowrap;"><button class="btn-edit" onclick="openEditModal(${s.id})">edit</button><button class="btn-danger" onclick="deleteSession(${s.id})">del</button></td>
+    </tr>`).join('');
 }
 
 function renderTableHeaders() {
-  const thead = document.querySelector('#session-table').closest('table').querySelector('thead tr');
-  thead.innerHTML = `
-    ${thSort('num','#')}
-    ${thSort('date','Date')}
-    <th>Activity</th>
-    ${thSort('cv','C(v)')}
-    <th>Length</th>
-    ${thSort('bpm','BPM')}
-    <th>Time</th>
-    ${thSort('low','Low')}
-    ${thSort('med','Med')}
-    ${thSort('high','High')}
-    ${thSort('H','H')}
-    ${thSort('R','R')}
-    ${thSort('Rpct','R%')}
-    <th>Category</th>
-    <th>Tag</th>
-    <th></th>
-  `;
+  document.querySelector('#session-table').closest('table').querySelector('thead tr').innerHTML = `
+    ${thSort('num','#')}${thSort('date','Date')}<th>Activity</th>${thSort('cv','C(v)')}
+    <th>Length</th>${thSort('bpm','BPM')}<th>Time</th>${thSort('low','Low')}${thSort('med','Med')}
+    ${thSort('high','High')}${thSort('H','H')}${thSort('R','R')}${thSort('Rpct','R%')}
+    <th>Category</th><th>Tag</th><th></th>`;
+}
+
+function weightedStats(sessions) {
+  let totalW = 0, wR = 0, wCv = 0, wH = 0, wLow = 0, wMed = 0, wHigh = 0;
+  sessions.forEach(s => {
+    const w = Math.max(parseLengthMins(s.length), 1);
+    totalW += w; wR += s.R*w; wCv += s.cv*w; wH += s.H*w;
+    wLow += s.low*w; wMed += s.med*w; wHigh += s.high*w;
+  });
+  return { avgR: wR/totalW, avgCv: wCv/totalW, avgH: wH/totalW, avgLow: wLow/totalW, avgMed: wMed/totalW, avgHigh: wHigh/totalW };
 }
 
 function renderStats() {
   const sessions = load();
   const grid = document.getElementById('stats-grid');
-  if (sessions.length === 0) { grid.innerHTML = ''; return; }
-
-  const avgR   = sessions.reduce((a,s) => a+s.R, 0) / sessions.length;
-  const avgCv  = sessions.reduce((a,s) => a+s.cv, 0) / sessions.length;
-  const avgH   = sessions.reduce((a,s) => a+s.H, 0) / sessions.length;
-  const bestR  = Math.max(...sessions.map(s => s.R));
-
+  if (!sessions.length) { grid.innerHTML = ''; return; }
+  const { avgR, avgCv, avgH } = weightedStats(sessions);
+  const bestR = Math.max(...sessions.map(s => s.R));
   grid.innerHTML = `
-    <div class="stat-card">
-      <div class="stat-val">${sessions.length}</div>
-      <div class="stat-lbl">Total Sessions</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-val" style="color:var(--green)">${avgR.toFixed(3)}</div>
-      <div class="stat-lbl">Avg R Value</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-val" style="color:var(--accent)">${avgCv.toFixed(2)}</div>
-      <div class="stat-lbl">Avg C(v)</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-val" style="color:var(--muted)">${avgH.toFixed(3)}</div>
-      <div class="stat-lbl">Avg Shannon H</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-val" style="color:var(--gold)">${bestR.toFixed(3)}</div>
-      <div class="stat-lbl">Best R Ever</div>
-    </div>
-  `;
+    <div class="stat-card"><div class="stat-val">${sessions.length}</div><div class="stat-lbl">Total Sessions</div></div>
+    <div class="stat-card"><div class="stat-val" style="color:var(--green)">${avgR.toFixed(3)}</div><div class="stat-lbl">Avg R (weighted)</div></div>
+    <div class="stat-card"><div class="stat-val" style="color:var(--accent)">${avgCv.toFixed(2)}</div><div class="stat-lbl">Avg C(v) (weighted)</div></div>
+    <div class="stat-card"><div class="stat-val" style="color:var(--muted)">${avgH.toFixed(3)}</div><div class="stat-lbl">Avg H (weighted)</div></div>
+    <div class="stat-card"><div class="stat-val" style="color:var(--gold)">${bestR.toFixed(3)}</div><div class="stat-lbl">Best R Ever</div></div>`;
 }
 
 function renderWrapped() {
   const sessions = load();
   const el = document.getElementById('wrapped-content');
-
-  if (sessions.length === 0) {
-    el.innerHTML = '<div class="empty"><div class="empty-icon">◎</div>No sessions yet. Log some sessions to see your Wrapped.</div>';
-    return;
-  }
-
-  const avgR    = sessions.reduce((a,s)=>a+s.R,0)/sessions.length;
-  const avgCv   = sessions.reduce((a,s)=>a+s.cv,0)/sessions.length;
-  const avgH    = sessions.reduce((a,s)=>a+s.H,0)/sessions.length;
-  const bestR   = Math.max(...sessions.map(s=>s.R));
-  const bestS   = sessions.find(s=>s.R===bestR);
-  const above1  = sessions.filter(s=>s.R>=1.0).length;
-  const h0      = sessions.filter(s=>s.H===0).length;
-  const avgLow  = Math.round(sessions.reduce((a,s)=>a+s.low,0)/sessions.length*100);
-  const avgMed  = Math.round(sessions.reduce((a,s)=>a+s.med,0)/sessions.length*100);
-  const avgHigh = Math.round(sessions.reduce((a,s)=>a+s.high,0)/sessions.length*100);
-
-  const cats = {};
-  sessions.forEach(s => { if (s.category) cats[s.category] = (cats[s.category]||0) + 1; });
+  if (!sessions.length) { el.innerHTML = '<div class="empty"><div class="empty-icon">◎</div>No sessions yet. Log some sessions to see your Wrapped.</div>'; return; }
+  const { avgR, avgCv, avgH, avgLow, avgMed, avgHigh } = weightedStats(sessions);
+  const bestR = Math.max(...sessions.map(s=>s.R));
+  const bestS = sessions.find(s=>s.R===bestR);
+  const above1 = sessions.filter(s=>s.R>=1.0).length;
+  const h0 = sessions.filter(s=>s.H===0).length;
+  const aLow = Math.round(avgLow*100), aMed = Math.round(avgMed*100), aHigh = Math.round(avgHigh*100);
+  const cats = {}; sessions.forEach(s => { if (s.category) cats[s.category] = (cats[s.category]||0)+1; });
   const maxCat = Math.max(...Object.values(cats), 1);
   const catBars = Object.entries(cats).sort((a,b)=>b[1]-a[1]).map(([name,count]) => `
-    <div class="cat-bar-row">
-      <div class="cat-bar-label">${name}</div>
-      <div class="cat-bar-track"><div class="cat-bar-fill" style="width:${count/maxCat*100}%"></div></div>
-      <div class="cat-bar-val">${count}</div>
-    </div>
-  `).join('');
-
+    <div class="cat-bar-row"><div class="cat-bar-label">${name}</div><div class="cat-bar-track"><div class="cat-bar-fill" style="width:${count/maxCat*100}%"></div></div><div class="cat-bar-val">${count}</div></div>`).join('');
   const bestLabel = bestS ? (bestS.type || `Session S${bestS.num}`) : '';
-
   el.innerHTML = `
     <div class="wrapped-grid">
-      <div class="wrapped-card featured">
-        <div class="wrapped-label">Peak R — All Time High</div>
-        <div class="wrapped-big" style="color:var(--gold)">${bestR.toFixed(3)}</div>
-        <div class="wrapped-sub">${bestLabel}${bestS && bestS.date ? ' &bull; ' + bestS.date : ''}</div>
-      </div>
-      <div class="wrapped-card">
-        <div class="wrapped-label">Total Sessions</div>
-        <div class="wrapped-big">${sessions.length}</div>
-        <div class="wrapped-sub">${above1} sessions above threshold (R &ge; 1.0)</div>
-      </div>
-      <div class="wrapped-card">
-        <div class="wrapped-label">Average R Value</div>
-        <div class="wrapped-big" style="color:var(--green)">${avgR.toFixed(3)}</div>
-        <div class="wrapped-sub">Avg C(v): ${avgCv.toFixed(2)} &bull; Avg H: ${avgH.toFixed(3)}</div>
-      </div>
+      <div class="wrapped-card featured"><div class="wrapped-label">Peak R — All Time High</div><div class="wrapped-big" style="color:var(--gold)">${bestR.toFixed(3)}</div><div class="wrapped-sub">${bestLabel}${bestS&&bestS.date?' &bull; '+bestS.date:''}</div></div>
+      <div class="wrapped-card"><div class="wrapped-label">Total Sessions</div><div class="wrapped-big">${sessions.length}</div><div class="wrapped-sub">${above1} sessions above threshold (R &ge; 1.0)</div></div>
+      <div class="wrapped-card"><div class="wrapped-label">Average R Value</div><div class="wrapped-big" style="color:var(--green)">${avgR.toFixed(3)}</div><div class="wrapped-sub">Avg C(v): ${avgCv.toFixed(2)} &bull; Avg H: ${avgH.toFixed(3)}</div></div>
       <div class="wrapped-card" style="grid-column:1/-1;">
-        <div class="wrapped-label">Average Coherence Distribution</div>
+        <div class="wrapped-label">Average Coherence Distribution (duration-weighted)</div>
         <div style="display:flex;gap:24px;margin-top:12px;flex-wrap:wrap;">
-          <div style="text-align:center;">
-            <div style="font-size:32px;font-weight:800;color:var(--gold);font-family:'Space Mono',monospace;">${avgLow}%</div>
-            <div style="font-size:10px;color:var(--muted);font-family:'Space Mono',monospace;letter-spacing:.1em;text-transform:uppercase;margin-top:4px;">Low</div>
-          </div>
-          <div style="text-align:center;">
-            <div style="font-size:32px;font-weight:800;color:var(--accent2);font-family:'Space Mono',monospace;">${avgMed}%</div>
-            <div style="font-size:10px;color:var(--muted);font-family:'Space Mono',monospace;letter-spacing:.1em;text-transform:uppercase;margin-top:4px;">Med</div>
-          </div>
-          <div style="text-align:center;">
-            <div style="font-size:32px;font-weight:800;color:var(--green);font-family:'Space Mono',monospace;">${avgHigh}%</div>
-            <div style="font-size:10px;color:var(--muted);font-family:'Space Mono',monospace;letter-spacing:.1em;text-transform:uppercase;margin-top:4px;">High</div>
-          </div>
-          ${h0 > 0 ? `<div style="text-align:center;"><div style="font-size:32px;font-weight:800;color:var(--gold);font-family:'Space Mono',monospace;">${h0}</div><div style="font-size:10px;color:var(--muted);font-family:'Space Mono',monospace;letter-spacing:.1em;text-transform:uppercase;margin-top:4px;">H=0 Sessions</div></div>` : ''}
+          <div style="text-align:center;"><div style="font-size:32px;font-weight:800;color:var(--gold);font-family:'Space Mono',monospace;">${aLow}%</div><div style="font-size:10px;color:var(--muted);font-family:'Space Mono',monospace;letter-spacing:.1em;text-transform:uppercase;margin-top:4px;">Low</div></div>
+          <div style="text-align:center;"><div style="font-size:32px;font-weight:800;color:var(--accent2);font-family:'Space Mono',monospace;">${aMed}%</div><div style="font-size:10px;color:var(--muted);font-family:'Space Mono',monospace;letter-spacing:.1em;text-transform:uppercase;margin-top:4px;">Med</div></div>
+          <div style="text-align:center;"><div style="font-size:32px;font-weight:800;color:var(--green);font-family:'Space Mono',monospace;">${aHigh}%</div><div style="font-size:10px;color:var(--muted);font-family:'Space Mono',monospace;letter-spacing:.1em;text-transform:uppercase;margin-top:4px;">High</div></div>
+          ${h0>0?`<div style="text-align:center;"><div style="font-size:32px;font-weight:800;color:var(--gold);font-family:'Space Mono',monospace;">${h0}</div><div style="font-size:10px;color:var(--muted);font-family:'Space Mono',monospace;letter-spacing:.1em;text-transform:uppercase;margin-top:4px;">H=0 Sessions</div></div>`:''}
         </div>
         <div class="pct-bar" style="height:10px;margin-top:16px;border-radius:5px;">
-          <div style="width:${avgLow}%;background:var(--gold);border-radius:5px 0 0 5px;"></div>
-          <div style="width:${avgMed}%;background:var(--accent2);"></div>
-          <div style="width:${avgHigh}%;background:var(--green);border-radius:0 5px 5px 0;"></div>
+          <div style="width:${aLow}%;background:var(--gold);border-radius:5px 0 0 5px;"></div>
+          <div style="width:${aMed}%;background:var(--accent2);"></div>
+          <div style="width:${aHigh}%;background:var(--green);border-radius:0 5px 5px 0;"></div>
         </div>
       </div>
-      ${Object.keys(cats).length > 0 ? `
-      <div class="wrapped-card" style="grid-column:1/-1;">
-        <div class="wrapped-label">Sessions by Category</div>
-        <div class="category-bars">${catBars}</div>
-      </div>` : ''}
-    </div>
-  `;
+      ${Object.keys(cats).length>0?`<div class="wrapped-card" style="grid-column:1/-1;"><div class="wrapped-label">Sessions by Category</div><div class="category-bars">${catBars}</div></div>`:''}
+    </div>`;
 }
 
-// ── GRAPH ──────────────────────────────────────────────
-
+// ── GRAPH ────────────────────────────────────────────
 let graphData = [];
 let graphPoints = { cv: [], r: [], h: [] };
 
+function buildDayAverages(sessions) {
+  const byDate = {};
+  sessions.filter(s => s.date).forEach(s => {
+    if (!byDate[s.date]) byDate[s.date] = [];
+    byDate[s.date].push(s);
+  });
+  return Object.entries(byDate).sort(([a],[b]) => a.localeCompare(b)).map(([date, group]) => {
+    if (group.length === 1) return { ...group[0], _count: 1, _date: date };
+    let totalW=0, wCv=0, wR=0, wH=0;
+    group.forEach(s => { const w=Math.max(parseLengthMins(s.length),1); totalW+=w; wCv+=s.cv*w; wR+=s.R*w; wH+=s.H*w; });
+    const types = group.map(s=>s.type).filter(Boolean);
+    return { date, _date: date, _count: group.length,
+      cv: Math.round(wCv/totalW*100)/100, R: Math.round(wR/totalW*1000)/1000,
+      H: Math.round(wH/totalW*1000)/1000, Rpct: Math.round(wR/totalW*1000)/10,
+      type: types.join(', '), category: group[0].category || '' };
+  });
+}
+
+function rollingAvg(arr, w=5) {
+  return arr.map((_,i) => {
+    const s = Math.max(0, i-Math.floor(w/2)), e = Math.min(arr.length, s+w);
+    const sl = arr.slice(s,e); return sl.reduce((a,v)=>a+v,0)/sl.length;
+  });
+}
+
+function buildXPositions(data, plotW) {
+  if (data.length === 1) return [0];
+  const dates = data.map(d => new Date(d._date).getTime());
+  const rawGaps = []; for (let i=1;i<dates.length;i++) rawGaps.push(dates[i]-dates[i-1]);
+  const sorted = rawGaps.slice().sort((a,b)=>a-b);
+  const median = sorted[Math.floor(sorted.length/2)] || rawGaps[0];
+  const maxGap = median * 3;
+  const compGaps = rawGaps.map(g => Math.min(g, maxGap));
+  const total = compGaps.reduce((a,b)=>a+b,0);
+  const positions = [0]; let cum=0;
+  compGaps.forEach(g => { cum+=g; positions.push((cum/total)*plotW); });
+  return positions;
+}
+
 function openGraphModal() {
   const sessions = load();
-  // Filter sessions that have a date, sort oldest→newest
-  const dated = sessions.filter(s => s.date).sort((a,b) => a.date.localeCompare(b.date));
-
+  const days = buildDayAverages(sessions);
   const noData = document.getElementById('graph-no-data');
   const canvas = document.getElementById('graph-canvas');
-
-  if (dated.length === 0) {
-    noData.style.display = 'block';
-    canvas.style.display = 'none';
+  const dayNote = document.getElementById('graph-day-note');
+  if (!days.length) {
+    noData.style.display='block'; canvas.style.display='none'; dayNote.style.display='none';
   } else {
-    noData.style.display = 'none';
-    canvas.style.display = 'block';
-    graphData = dated;
-    // Small delay to let modal open and get proper width
-    setTimeout(() => drawGraph(), 50);
+    noData.style.display='none'; canvas.style.display='block';
+    dayNote.style.display = days.some(d=>d._count>1) ? 'block' : 'none';
+    graphData = days;
+    setTimeout(drawGraph, 60);
   }
-
   document.getElementById('graph-modal').classList.add('open');
 }
 
@@ -1560,348 +776,257 @@ function closeGraphModal(e) {
 function drawGraph() {
   const canvas = document.getElementById('graph-canvas');
   const wrap = document.getElementById('graph-wrap');
+  const scroll = document.getElementById('graph-scroll');
   const tooltip = document.getElementById('graph-tooltip');
   const data = graphData;
   if (!data.length) return;
 
-  // Set canvas size
-  const W = wrap.clientWidth - 40; // subtract padding
-  const H = 320;
-  canvas.width = W;
-  canvas.height = H;
-  canvas.style.height = H + 'px';
+  const PAD = { top: 24, right: 24, bottom: 56, left: 52 };
+  const HC = 320;
+  const minW = scroll.clientWidth - 40;
+  const W = Math.max(minW, data.length * 34);
+
+  canvas.width = W; canvas.height = HC;
+  canvas.style.width = W + 'px'; canvas.style.height = HC + 'px';
+  wrap.style.width = (W + 40) + 'px';
 
   const ctx = canvas.getContext('2d');
-  ctx.clearRect(0, 0, W, H);
+  ctx.clearRect(0, 0, W, HC);
 
-  const PAD = { top: 20, right: 20, bottom: 50, left: 50 };
   const plotW = W - PAD.left - PAD.right;
-  const plotH = H - PAD.top - PAD.bottom;
-
-  // Data ranges
-  const allVals = [
-    ...data.map(s => s.cv),
-    ...data.map(s => s.R),
-    ...data.map(s => s.H)
-  ];
+  const plotH = HC - PAD.top - PAD.bottom;
+  const allVals = [...data.map(s=>s.cv),...data.map(s=>s.R),...data.map(s=>s.H)];
   const maxVal = Math.max(...allVals) * 1.15;
-  const minVal = 0;
 
-  // Helpers
-  const xPos = i => PAD.left + (i / (data.length - 1 || 1)) * plotW;
-  const yPos = v => PAD.top + plotH - ((v - minVal) / (maxVal - minVal || 1)) * plotH;
+  const xPos_arr = buildXPositions(data, plotW);
+  const xPos = i => PAD.left + xPos_arr[i];
+  const yPos = v => PAD.top + plotH - (v / (maxVal||1)) * plotH;
 
-  // Grid lines
-  const gridCount = 5;
-  ctx.strokeStyle = 'rgba(30,42,69,0.8)';
-  ctx.lineWidth = 1;
-  for (let i = 0; i <= gridCount; i++) {
-    const y = PAD.top + (plotH / gridCount) * i;
-    ctx.beginPath();
-    ctx.moveTo(PAD.left, y);
-    ctx.lineTo(PAD.left + plotW, y);
-    ctx.stroke();
-
-    // Y axis labels
-    const val = maxVal - (maxVal / gridCount) * i;
-    ctx.fillStyle = 'rgba(100,116,139,0.8)';
-    ctx.font = '10px Space Mono, monospace';
-    ctx.textAlign = 'right';
-    ctx.fillText(val.toFixed(1), PAD.left - 6, y + 4);
+  // Grid
+  ctx.strokeStyle = 'rgba(30,42,69,0.8)'; ctx.lineWidth = 1;
+  for (let i=0;i<=5;i++) {
+    const y = PAD.top + (plotH/5)*i;
+    ctx.beginPath(); ctx.moveTo(PAD.left,y); ctx.lineTo(PAD.left+plotW,y); ctx.stroke();
+    ctx.fillStyle='rgba(100,116,139,0.8)'; ctx.font='10px Space Mono,monospace'; ctx.textAlign='right';
+    ctx.fillText((maxVal-(maxVal/5)*i).toFixed(1), PAD.left-6, y+4);
   }
 
-  // X axis labels (dates)
-  ctx.fillStyle = 'rgba(100,116,139,0.8)';
-  ctx.font = '9px Space Mono, monospace';
-  ctx.textAlign = 'center';
-
-  const maxLabels = Math.min(data.length, 8);
-  const step = Math.max(1, Math.floor(data.length / maxLabels));
-  data.forEach((s, i) => {
-    if (i % step === 0 || i === data.length - 1) {
-      const x = xPos(i);
-      // Short date format
-      const d = s.date ? s.date.slice(5) : `S${s.num}`; // MM-DD
-      ctx.save();
-      ctx.translate(x, H - PAD.bottom + 14);
-      ctx.rotate(-0.5);
-      ctx.fillText(d, 0, 0);
-      ctx.restore();
+  // X labels
+  ctx.fillStyle='rgba(100,116,139,0.8)'; ctx.font='9px Space Mono,monospace'; ctx.textAlign='center';
+  const labelEvery = Math.max(1, Math.ceil(data.length/Math.floor(plotW/42)));
+  data.forEach((s,i) => {
+    if (i%labelEvery===0 || i===data.length-1) {
+      ctx.save(); ctx.translate(xPos(i), HC-PAD.bottom+14); ctx.rotate(-0.5);
+      ctx.fillText(s._date?s._date.slice(5):'?', 0, 0); ctx.restore();
     }
   });
 
-  // Draw a line series
-  function drawLine(getter, color, glowColor) {
-    if (data.length < 2) return;
-    // Glow pass
-    ctx.save();
-    ctx.shadowColor = glowColor;
-    ctx.shadowBlur = 8;
-    ctx.strokeStyle = color;
-    ctx.lineWidth = 2;
-    ctx.lineJoin = 'round';
-    ctx.beginPath();
-    data.forEach((s, i) => {
-      const x = xPos(i), y = yPos(getter(s));
-      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+  // Gap break lines
+  if (data.length > 1) {
+    const dates = data.map(d=>new Date(d._date).getTime());
+    const rawGaps=[]; for(let i=1;i<dates.length;i++) rawGaps.push(dates[i]-dates[i-1]);
+    const sorted=rawGaps.slice().sort((a,b)=>a-b), median=sorted[Math.floor(sorted.length/2)]||1;
+    rawGaps.forEach((gap,gi) => {
+      if (gap > median*4) {
+        const x = (xPos(gi)+xPos(gi+1))/2;
+        ctx.save(); ctx.setLineDash([3,4]); ctx.strokeStyle='rgba(100,116,139,0.25)'; ctx.lineWidth=1;
+        ctx.beginPath(); ctx.moveTo(x,PAD.top); ctx.lineTo(x,PAD.top+plotH); ctx.stroke();
+        ctx.setLineDash([]); ctx.fillStyle='rgba(100,116,139,0.4)'; ctx.font='8px Space Mono,monospace'; ctx.textAlign='center';
+        ctx.fillText(Math.round(gap/(86400000))+'d', x, PAD.top-6); ctx.restore();
+      }
     });
-    ctx.stroke();
-    ctx.restore();
   }
 
-  // Draw dots and store positions for hover
+  function drawLine(getter, color, glow, dashed=false) {
+    if (data.length < 2) return;
+    ctx.save(); ctx.shadowColor=glow; ctx.shadowBlur=dashed?0:8;
+    ctx.strokeStyle=color; ctx.lineWidth=dashed?1.5:2; ctx.lineJoin='round';
+    if (dashed) ctx.setLineDash([5,5]);
+    ctx.beginPath();
+    data.forEach((s,i) => { const x=xPos(i),y=yPos(getter(s)); i===0?ctx.moveTo(x,y):ctx.lineTo(x,y); });
+    ctx.stroke(); ctx.restore();
+  }
+
   function drawDots(getter, color, arr) {
     arr.length = 0;
-    data.forEach((s, i) => {
-      const x = xPos(i), y = yPos(getter(s));
-      arr.push({ x, y, s, val: getter(s) });
-      ctx.beginPath();
-      ctx.arc(x, y, 4, 0, Math.PI * 2);
-      ctx.fillStyle = color;
-      ctx.shadowColor = color;
-      ctx.shadowBlur = 10;
-      ctx.fill();
-      ctx.shadowBlur = 0;
+    data.forEach((s,i) => {
+      const x=xPos(i), y=yPos(getter(s));
+      arr.push({x,y,s,val:getter(s)});
+      ctx.beginPath(); ctx.arc(x,y,s._count>1?5:4,0,Math.PI*2);
+      if (s._count>1) { ctx.strokeStyle=color; ctx.lineWidth=2; ctx.shadowColor=color; ctx.shadowBlur=8; ctx.stroke(); ctx.shadowBlur=0; }
+      else { ctx.fillStyle=color; ctx.shadowColor=color; ctx.shadowBlur=10; ctx.fill(); ctx.shadowBlur=0; }
     });
   }
 
-  // Shannon H (accent2 / purple)
-  drawLine(s => s.H, '#a78bfa', 'rgba(167,139,250,0.5)');
-  drawDots(s => s.H, '#a78bfa', graphPoints.h);
+  const cvRolling = rollingAvg(data.map(s=>s.cv), 5);
 
-  // R value (green)
-  drawLine(s => s.R, '#34d399', 'rgba(52,211,153,0.5)');
-  drawDots(s => s.R, '#34d399', graphPoints.r);
+  drawLine(s=>s.H,  '#a78bfa','rgba(167,139,250,0.5)');
+  drawDots(s=>s.H,  '#a78bfa', graphPoints.h);
+  drawLine(s=>s.R,  '#34d399','rgba(52,211,153,0.5)');
+  drawDots(s=>s.R,  '#34d399', graphPoints.r);
+  drawLine(s=>s.cv, '#f472b6','rgba(244,114,182,0.5)');
+  drawDots(s=>s.cv, '#f472b6', graphPoints.cv);
 
-  // C(ν) — pink (on top)
-  drawLine(s => s.cv, '#f472b6', 'rgba(244,114,182,0.5)');
-  drawDots(s => s.cv, '#f472b6', graphPoints.cv);
+  // Rolling avg line
+  if (data.length >= 3) {
+    ctx.save(); ctx.strokeStyle='rgba(244,114,182,0.6)'; ctx.lineWidth=2; ctx.lineJoin='round'; ctx.setLineDash([5,5]);
+    ctx.beginPath();
+    data.forEach((_,i) => { const x=xPos(i),y=yPos(cvRolling[i]); i===0?ctx.moveTo(x,y):ctx.lineTo(x,y); });
+    ctx.stroke(); ctx.restore();
+  }
 
-  // Axis lines
-  ctx.strokeStyle = 'rgba(30,42,69,1)';
-  ctx.lineWidth = 1;
-  ctx.beginPath();
-  ctx.moveTo(PAD.left, PAD.top);
-  ctx.lineTo(PAD.left, PAD.top + plotH);
-  ctx.lineTo(PAD.left + plotW, PAD.top + plotH);
-  ctx.stroke();
+  // Axes
+  ctx.strokeStyle='rgba(30,42,69,1)'; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.moveTo(PAD.left,PAD.top); ctx.lineTo(PAD.left,PAD.top+plotH); ctx.lineTo(PAD.left+plotW,PAD.top+plotH); ctx.stroke();
 
   // Hover
   canvas.onmousemove = (e) => {
     const rect = canvas.getBoundingClientRect();
-    const mx = (e.clientX - rect.left) * (canvas.width / rect.width);
-    const my = (e.clientY - rect.top) * (canvas.height / rect.height);
-
-    let closest = null, minDist = 20;
-    [...graphPoints.cv, ...graphPoints.r, ...graphPoints.h].forEach(pt => {
-      const d = Math.hypot(mx - pt.x, my - pt.y);
-      if (d < minDist) { minDist = d; closest = pt; }
+    const mx = (e.clientX-rect.left)*(canvas.width/rect.width);
+    const my = (e.clientY-rect.top)*(canvas.height/rect.height);
+    let closest=null, minDist=24;
+    [...graphPoints.cv,...graphPoints.r,...graphPoints.h].forEach(pt => {
+      const d=Math.hypot(mx-pt.x,my-pt.y); if(d<minDist){minDist=d;closest=pt;}
     });
-
     if (closest) {
-      const s = closest.s;
+      const s=closest.s;
+      const countLine = s._count>1?`<div style="color:var(--muted);font-size:10px;margin-bottom:4px;">${s._count} sessions averaged</div>`:'';
       tooltip.innerHTML = `
-        <div style="color:var(--pink);font-weight:700;margin-bottom:4px;">${s.date || `S${s.num}`}</div>
-        ${s.type ? `<div style="color:var(--muted);margin-bottom:4px;">${s.type}</div>` : ''}
+        <div style="color:var(--pink);font-weight:700;margin-bottom:4px;">${s._date}</div>
+        ${countLine}
+        ${s.type?`<div style="color:var(--muted);margin-bottom:4px;max-width:180px;white-space:normal;font-size:10px;">${s.type.slice(0,60)}</div>`:''}
         <div style="color:var(--pink);">C(ν): <b>${s.cv}</b></div>
         <div style="color:var(--green);">R: <b>${s.R.toFixed(3)}</b></div>
-        <div style="color:var(--accent2);">H: <b>${s.H}</b></div>
-      `;
-      // Position tooltip - flip left when near right edge
+        <div style="color:var(--accent2);">H: <b>${s.H}</b></div>`;
       tooltip.classList.add('visible');
-      const wrapRect = wrap.getBoundingClientRect();
-      const tipW = tooltip.offsetWidth || 160;
-      const tipH = tooltip.offsetHeight || 90;
-      let tx = e.clientX - wrapRect.left + 12;
-      let ty = e.clientY - wrapRect.top - 10;
-      // Flip to left of cursor if it would overflow right edge
-      if (tx + tipW > wrapRect.width - 8) tx = e.clientX - wrapRect.left - tipW - 12;
-      // Clamp top so it doesn't go above wrap
-      if (ty < 4) ty = 4;
-      // Clamp bottom
-      if (ty + tipH > wrapRect.height - 4) ty = wrapRect.height - tipH - 4;
-      tooltip.style.left = tx + 'px';
-      tooltip.style.top = ty + 'px';
-    } else {
-      tooltip.classList.remove('visible');
-    }
+      const tipW=tooltip.offsetWidth||170, tipH=tooltip.offsetHeight||100;
+      let tx=e.clientX+14, ty=e.clientY-14;
+      if (tx+tipW>window.innerWidth-8) tx=e.clientX-tipW-14;
+      if (ty<8) ty=8; if (ty+tipH>window.innerHeight-8) ty=window.innerHeight-tipH-8;
+      tooltip.style.left=tx+'px'; tooltip.style.top=ty+'px';
+    } else { tooltip.classList.remove('visible'); }
   };
-
   canvas.onmouseleave = () => tooltip.classList.remove('visible');
 }
-
 // ── END GRAPH ──
 
 function deleteSession(id) {
   if (!confirm('Delete this session?')) return;
-  const sessions = load().filter(s => s.id !== id);
-  save(sessions);
-  renderAll();
-  showToast('Session deleted.');
+  save(load().filter(s=>s.id!==id)); renderAll(); showToast('Session deleted.');
 }
 
 function exportCSV() {
-  const sessions = load();
-  if (!sessions.length) return;
+  const sessions = load(); if (!sessions.length) return;
   const headers = ['#','Date','Activity','C(v)','Length','BPM','Low','Med','High','Shannon H','e(-H)','R','R%','Category','Tag','Notes'];
-  const rows = sessions.map(s => [
-    `S${s.num}`, s.date, `"${(s.type||'').replace(/"/g,'""')}"`,
-    s.cv, s.length, s.bpm,
-    Math.round(s.low*100)+'%', Math.round(s.med*100)+'%', Math.round(s.high*100)+'%',
-    s.H, s.eH, s.R, s.Rpct+'%',
-    s.category, s.tag, `"${(s.notes||'').replace(/"/g,'""')}"`
-  ].join(','));
-  const csv = [headers.join(','), ...rows].join('\n');
-  const blob = new Blob([csv], {type:'text/csv'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'coherence_sessions.csv';
-  a.click();
+  const rows = sessions.map(s => [`S${s.num}`,s.date,`"${(s.type||'').replace(/"/g,'""')}"`,s.cv,s.length,s.bpm,Math.round(s.low*100)+'%',Math.round(s.med*100)+'%',Math.round(s.high*100)+'%',s.H,s.eH,s.R,s.Rpct+'%',s.category,s.tag,`"${(s.notes||'').replace(/"/g,'""')}"`].join(','));
+  const blob = new Blob([[headers.join(','),...rows].join('\n')],{type:'text/csv'});
+  const a = document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='coherence_sessions.csv'; a.click();
 }
 
 function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2500);
+  const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2500);
 }
 
 function switchTab(name) {
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
   event.target.classList.add('active');
   document.getElementById('tab-'+name).classList.add('active');
-  if (name === 'data') renderStats();
-  if (name === 'wrapped') renderWrapped();
+  if (name==='data') renderStats();
+  if (name==='wrapped') renderWrapped();
 }
 
 function openEditModal(id) {
-  const sessions = load();
-  const s = sessions.find(s => s.id === id);
-  if (!s) return;
-
-  document.getElementById('edit-id').value = id;
-  document.getElementById('edit-date').value = s.date || '';
-  document.getElementById('edit-cv').value = s.cv;
-  document.getElementById('edit-length').value = s.length || '';
-  document.getElementById('edit-bpm').value = s.bpm || '';
-  document.getElementById('edit-timeofday').value = s.timeofday || '';
-  document.getElementById('edit-type').value = s.type || '';
-  document.getElementById('edit-low').value = Math.round(s.low * 100);
-  document.getElementById('edit-med').value = Math.round(s.med * 100);
-  document.getElementById('edit-high').value = Math.round(s.high * 100);
-  document.getElementById('edit-category').value = s.category || '';
-  document.getElementById('edit-tag').value = s.tag || '';
-  document.getElementById('edit-notes').value = s.notes || '';
-  document.getElementById('edit-error').textContent = '';
-
+  const s = load().find(s=>s.id===id); if (!s) return;
+  document.getElementById('edit-id').value=id;
+  document.getElementById('edit-date').value=s.date||'';
+  document.getElementById('edit-cv').value=s.cv;
+  document.getElementById('edit-length').value=s.length||'';
+  document.getElementById('edit-bpm').value=s.bpm||'';
+  document.getElementById('edit-timeofday').value=s.timeofday||'';
+  document.getElementById('edit-type').value=s.type||'';
+  document.getElementById('edit-low').value=Math.round(s.low*100);
+  document.getElementById('edit-med').value=Math.round(s.med*100);
+  document.getElementById('edit-high').value=Math.round(s.high*100);
+  document.getElementById('edit-category').value=s.category||'';
+  document.getElementById('edit-tag').value=s.tag||'';
+  document.getElementById('edit-notes').value=s.notes||'';
+  document.getElementById('edit-error').textContent='';
   updateEditLive();
   document.getElementById('edit-modal').classList.add('open');
 }
 
 function closeEditModal(e) {
-  if (e && e.target !== document.getElementById('edit-modal')) return;
+  if (e && e.target!==document.getElementById('edit-modal')) return;
   document.getElementById('edit-modal').classList.remove('open');
 }
 
 function updateEditLive() {
-  const cv   = parseFloat(document.getElementById('edit-cv').value) || 0;
-  const lowP = parseFloat(document.getElementById('edit-low').value) || 0;
-  const medP = parseFloat(document.getElementById('edit-med').value) || 0;
-  const highP= parseFloat(document.getElementById('edit-high').value) || 0;
-
-  if (!cv || (lowP + medP + highP) === 0) {
-    ['elc-h','elc-eh','elc-r','elc-rpct'].forEach(id => {
-      document.getElementById(id).textContent = '—';
-      document.getElementById(id).className = 'calc-value';
-    });
-    return;
+  const cv=parseFloat(document.getElementById('edit-cv').value)||0;
+  const lowP=parseFloat(document.getElementById('edit-low').value)||0;
+  const medP=parseFloat(document.getElementById('edit-med').value)||0;
+  const highP=parseFloat(document.getElementById('edit-high').value)||0;
+  if (!cv||(lowP+medP+highP)===0) {
+    ['elc-h','elc-eh','elc-r','elc-rpct'].forEach(id=>{document.getElementById(id).textContent='—';document.getElementById(id).className='calc-value';}); return;
   }
-
-  const { H, eH, R, Rpct } = calcR(cv, lowP/100, medP/100, highP/100);
-  document.getElementById('elc-h').textContent = H.toFixed(3);
-  document.getElementById('elc-eh').textContent = eH.toFixed(4);
-  const cls = R >= 0.95 ? 'calc-value gold' : R >= 0.45 ? 'calc-value green' : 'calc-value';
-  document.getElementById('elc-r').textContent = R.toFixed(3);
-  document.getElementById('elc-r').className = cls;
-  document.getElementById('elc-rpct').textContent = Rpct.toFixed(1) + '%';
-  document.getElementById('elc-rpct').className = cls;
+  const {H,eH,R,Rpct}=calcR(cv,lowP/100,medP/100,highP/100);
+  document.getElementById('elc-h').textContent=H.toFixed(3);
+  document.getElementById('elc-eh').textContent=eH.toFixed(4);
+  const cls=R>=0.95?'calc-value gold':R>=0.45?'calc-value green':'calc-value';
+  document.getElementById('elc-r').textContent=R.toFixed(3); document.getElementById('elc-r').className=cls;
+  document.getElementById('elc-rpct').textContent=Rpct.toFixed(1)+'%'; document.getElementById('elc-rpct').className=cls;
 }
 
 function saveEdit() {
-  const err = document.getElementById('edit-error');
-  err.textContent = '';
-
-  const id     = parseInt(document.getElementById('edit-id').value);
-  const date   = document.getElementById('edit-date').value;
-  const cv     = parseFloat(document.getElementById('edit-cv').value);
-  const length = document.getElementById('edit-length').value.trim();
-  const bpm    = document.getElementById('edit-bpm').value;
-  const timeofday = document.getElementById('edit-timeofday').value;
-  const type   = document.getElementById('edit-type').value.trim();
-  const lowP   = parseFloat(document.getElementById('edit-low').value);
-  const medP   = parseFloat(document.getElementById('edit-med').value);
-  const highP  = parseFloat(document.getElementById('edit-high').value);
-  const category = document.getElementById('edit-category').value;
-  const tag    = document.getElementById('edit-tag').value.trim();
-  const notes  = document.getElementById('edit-notes').value.trim();
-
-  if (!cv) { err.textContent = 'C(v) is required.'; return; }
-  const total = (lowP||0) + (medP||0) + (highP||0);
-  if (total === 0) { err.textContent = 'Enter Low/Med/High percentages.'; return; }
-  if (Math.abs(total - 100) > 2) { err.textContent = `Low+Med+High should equal 100% (currently ${total}%).`; return; }
-
-  const low = (lowP||0)/100, med = (medP||0)/100, high = (highP||0)/100;
-  const { H, eH, R, Rpct } = calcR(cv, low, med, high);
-
-  const sessions = load();
-  const idx = sessions.findIndex(s => s.id === id);
-  if (idx === -1) { err.textContent = 'Session not found.'; return; }
-
-  sessions[idx] = { ...sessions[idx], date, cv, length, bpm: bpm||'', timeofday: timeofday||'', type, low, med, high, H, eH, R, Rpct, category, tag, notes };
+  const err=document.getElementById('edit-error'); err.textContent='';
+  const id=parseInt(document.getElementById('edit-id').value);
+  const date=document.getElementById('edit-date').value;
+  const cv=parseFloat(document.getElementById('edit-cv').value);
+  const length=document.getElementById('edit-length').value.trim();
+  const bpm=document.getElementById('edit-bpm').value;
+  const timeofday=document.getElementById('edit-timeofday').value;
+  const type=document.getElementById('edit-type').value.trim();
+  const lowP=parseFloat(document.getElementById('edit-low').value);
+  const medP=parseFloat(document.getElementById('edit-med').value);
+  const highP=parseFloat(document.getElementById('edit-high').value);
+  const category=document.getElementById('edit-category').value;
+  const tag=document.getElementById('edit-tag').value.trim();
+  const notes=document.getElementById('edit-notes').value.trim();
+  if (!cv){err.textContent='C(v) is required.';return;}
+  const total=(lowP||0)+(medP||0)+(highP||0);
+  if (total===0){err.textContent='Enter Low/Med/High percentages.';return;}
+  if (Math.abs(total-100)>2){err.textContent=`Low+Med+High should equal 100% (currently ${total}%).`;return;}
+  const {H,eH,R,Rpct}=calcR(cv,(lowP||0)/100,(medP||0)/100,(highP||0)/100);
+  const sessions=load(), idx=sessions.findIndex(s=>s.id===id);
+  if (idx===-1){err.textContent='Session not found.';return;}
+  sessions[idx]={...sessions[idx],date,cv,length,bpm:bpm||'',timeofday:timeofday||'',type,low:(lowP||0)/100,med:(medP||0)/100,high:(highP||0)/100,H,eH,R,Rpct,category,tag,notes};
   save(sessions);
-
   document.getElementById('edit-modal').classList.remove('open');
-  showToast('Session updated — R = ' + R.toFixed(3));
-  renderAll();
+  showToast('Session updated — R = '+R.toFixed(3)); renderAll();
 }
 
 function exportJSON() {
-  const sessions = load();
-  if (!sessions.length) { showToast('No sessions to export.'); return; }
-  const blob = new Blob([JSON.stringify(sessions, null, 2)], {type:'application/json'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'coherence_backup.json';
-  a.click();
+  const sessions=load(); if (!sessions.length){showToast('No sessions to export.');return;}
+  const blob=new Blob([JSON.stringify(sessions,null,2)],{type:'application/json'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='coherence_backup.json'; a.click();
   showToast('Backup exported.');
 }
 
 function importJSON(event) {
-  const file = event.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = function(e) {
+  const file=event.target.files[0]; if (!file) return;
+  const reader=new FileReader();
+  reader.onload=function(e) {
     try {
-      const imported = JSON.parse(e.target.result);
-      if (!Array.isArray(imported)) { showToast('Invalid backup file.'); return; }
+      const imported=JSON.parse(e.target.result);
+      if (!Array.isArray(imported)){showToast('Invalid backup file.');return;}
       if (!confirm(`Import ${imported.length} sessions? This will replace your current data.`)) return;
-      save(imported);
-      renderAll();
-      showToast(`Imported ${imported.length} sessions.`);
-    } catch {
-      showToast('Could not read file.');
-    }
+      save(imported); renderAll(); showToast(`Imported ${imported.length} sessions.`);
+    } catch { showToast('Could not read file.'); }
   };
-  reader.readAsText(file);
-  event.target.value = '';
+  reader.readAsText(file); event.target.value='';
 }
 
-function renderAll() {
-  renderTable();
-  renderStats();
-  renderWrapped();
-}
+function renderAll() { renderTable(); renderStats(); renderWrapped(); }
 
 document.getElementById('f-date').value = new Date().toISOString().split('T')[0];
 renderAll();
