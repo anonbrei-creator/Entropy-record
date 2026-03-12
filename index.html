@@ -1689,13 +1689,21 @@ function drawGraph() {
         <div style="color:var(--green);">R: <b>${s.R.toFixed(3)}</b></div>
         <div style="color:var(--accent2);">H: <b>${s.H}</b></div>
       `;
-      // Position tooltip - keep in bounds
+      // Position tooltip - flip left when near right edge
+      tooltip.classList.add('visible');
       const wrapRect = wrap.getBoundingClientRect();
+      const tipW = tooltip.offsetWidth || 160;
+      const tipH = tooltip.offsetHeight || 90;
       let tx = e.clientX - wrapRect.left + 12;
       let ty = e.clientY - wrapRect.top - 10;
+      // Flip to left of cursor if it would overflow right edge
+      if (tx + tipW > wrapRect.width - 8) tx = e.clientX - wrapRect.left - tipW - 12;
+      // Clamp top so it doesn't go above wrap
+      if (ty < 4) ty = 4;
+      // Clamp bottom
+      if (ty + tipH > wrapRect.height - 4) ty = wrapRect.height - tipH - 4;
       tooltip.style.left = tx + 'px';
       tooltip.style.top = ty + 'px';
-      tooltip.classList.add('visible');
     } else {
       tooltip.classList.remove('visible');
     }
