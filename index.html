@@ -744,6 +744,9 @@
       <div class="card-title">All Sessions</div>
       <div class="export-row">
         <button class="btn btn-secondary" style="font-size:12px;padding:8px 16px;" onclick="exportCSV()">Export CSV</button>
+<button class="btn btn-secondary" style="font-size:12px;padding:8px 16px;" onclick="exportJSON()">Export Backup</button>
+<button class="btn btn-secondary" style="font-size:12px;padding:8px 16px;" onclick="document.getElementById('import-input').click()">Import Backup</button>
+<input type="file" id="import-input" accept=".json" style="display:none;" onchange="importJSON(event)">
       </div>
       <div class="table-wrap">
         <table>
@@ -1396,7 +1399,36 @@ function saveEdit() {
   showToast('Session updated — R = ' + R.toFixed(3));
   renderAll();
 }
+function exportJSON() {
+  const sessions = load();
+  if (!sessions.length) { showToast('No sessions to export.'); return; }
+  const blob = new Blob([JSON.stringify(sessions, null, 2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'coherence_backup.json';
+  a.click();
+  showToast('Backup exported.');
+}
 
+function importJSON(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      const imported = JSON.parse(e.target.result);
+      if (!Array.isArray(imported)) { showToast('Invalid backup file.'); return; }
+      if (!confirm(`Import ${imported.length} sessions? This will replace your current data.`)) return;
+      save(imported);
+      renderAll();
+      showToast(`Imported ${imported.length} sessions.`);
+    } catch {
+      showToast('Could not read file.');
+    }
+  };
+  reader.readAsText(file);
+  event.target.value = '';
+}
 function renderAll() {
   renderTable();
   renderStats();
