@@ -487,8 +487,45 @@
     </div>
 
     <div style="margin-top:12px;font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);text-align:center;letter-spacing:0.08em;">
-      Oldest → newest · Same-day sessions averaged · Gaps compressed · Scroll if needed · Hover for details
+  Oldest → newest · Same-day sessions averaged · Gaps compressed · Scroll if needed · Hover for details
+</div>
+
+<details style="margin-top:16px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:0;overflow:hidden;">
+  <summary style="padding:12px 18px;cursor:pointer;font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+    How to read this graph
+    <span style="font-size:14px;opacity:0.5;">▾</span>
+  </summary>
+  <div style="padding:0 18px 18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:4px;">
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px;">
+      <div style="color:var(--pink);font-size:11px;font-weight:700;margin-bottom:6px;letter-spacing:0.05em;">C(ν) — Pink</div>
+      <div style="font-size:11px;color:var(--muted);line-height:1.7;">Your coherence ratio. The raw strength of the observer signal each session. Higher = more ordered, focused, coherent nervous system state.</div>
     </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px;">
+      <div style="color:var(--green);font-size:11px;font-weight:700;margin-bottom:6px;letter-spacing:0.05em;">R Value — Green</div>
+      <div style="font-size:11px;color:var(--muted);line-height:1.7;">C(ν) after the entropy penalty is applied. When R tracks close to C(ν), entropy is low and your signal is clean. A wide gap means high disorder is suppressing your coherence.</div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px;">
+      <div style="color:var(--accent2);font-size:11px;font-weight:700;margin-bottom:6px;letter-spacing:0.05em;">Shannon H — Purple</div>
+      <div style="font-size:11px;color:var(--muted);line-height:1.7;">System entropy. Lower is better. When H rises with C(ν), you have energy but it's unfocused — distributed across bands instead of concentrated in High.</div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px;">
+      <div style="color:rgba(244,114,182,0.7);font-size:11px;font-weight:700;margin-bottom:6px;letter-spacing:0.05em;">Dashed Line — 5-pt Rolling Avg</div>
+      <div style="font-size:11px;color:var(--muted);line-height:1.7;">Smoothed trend of C(ν). Each point averages the 2 sessions before and after it. Use this to see your actual trajectory — ignore the raw spikes and watch where this line is heading.</div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px;">
+      <div style="color:var(--text);font-size:11px;font-weight:700;margin-bottom:6px;letter-spacing:0.05em;">● vs ◎ Dots</div>
+      <div style="font-size:11px;color:var(--muted);line-height:1.7;">Filled dot = single session. Hollow ring = multiple sessions on the same day, averaged together by duration. Hover either for full details.</div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px;">
+      <div style="color:var(--muted);font-size:11px;font-weight:700;margin-bottom:6px;letter-spacing:0.05em;">Gap Lines</div>
+      <div style="font-size:11px;color:var(--muted);line-height:1.7;">Faint dashed vertical lines with a day count mark long breaks in logging. Gaps are compressed so a month of silence doesn't flatten the whole graph — but they're still acknowledged.</div>
+    </div>
+    <div style="background:var(--surface);border-left:2px solid var(--pink);border-radius:8px;padding:14px;grid-column:1/-1;">
+      <div style="color:var(--text);font-size:11px;font-weight:700;margin-bottom:6px;letter-spacing:0.05em;">What you're looking for</div>
+      <div style="font-size:11px;color:var(--muted);line-height:1.8;">The ideal trajectory: <span style="color:var(--pink);">C(ν) rising</span> while <span style="color:var(--accent2);">H falls</span> — high signal, low disorder. When those two lines move toward each other, <span style="color:var(--green);">R</span> rises without needing C(ν) to spike. Watch the dashed rolling average, not individual sessions. A sustained upward curve on that line means your baseline is actually shifting — not just isolated peaks.</div>
+    </div>
+  </div>
+</details>
   </div>
 </div>
 
